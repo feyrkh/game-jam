@@ -15,9 +15,18 @@ _global_script_class_icons={
 
 [application]
 
-config/name="01_space_horror"
+config/name="prototype_game"
+run/main_scene="res://levels/main/Main.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "vnen.tiled_importer" )
 
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[tiled_importer]
+
+enable_json_format=true
