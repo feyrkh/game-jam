@@ -35,14 +35,16 @@ tracks/0/keys = {
 
 [node name="MixedModeCamera" type="Camera2D"]
 position = Vector2( 131.741, 114.069 )
+z_index = 4000
+z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -148.616
-margin_top = -107.562
-margin_right = 828.384
-margin_bottom = 526.438
-color = Color( 0, 0, 0, 1 )
+margin_left = -500.0
+margin_top = -500.0
+margin_right = 500.0
+margin_bottom = 500.0
+color = Color( 0, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

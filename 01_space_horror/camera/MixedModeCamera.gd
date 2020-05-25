@@ -5,6 +5,11 @@ class_name MixedModeCamera
 var target:Node2D
 export var targetPath:NodePath
 export var following:bool = false
+export(float) var shakeIntensity = 30
+export(float) var shakeDurationSeconds = 1.5
+var remainingShakeDurationSeconds = 0
+
+var shake:float = 0
 
 var lastEnteredRegion
 
@@ -14,6 +19,9 @@ func _ready():
 func _physics_process(_delta):
 	if following:
 		position = target.position
+	if remainingShakeDurationSeconds > 0:
+		position += Vector2(rand_range(-shakeIntensity, shakeIntensity), rand_range(-shakeIntensity, shakeIntensity))
+		remainingShakeDurationSeconds -= _delta
 
 func on_fixed_mode_entered(fixedArea:Position2D):
 	lastEnteredRegion = fixedArea
@@ -37,3 +45,7 @@ func transitionToNextRegion():
 	yield($AnimationPlayer, "animation_finished")
 	get_tree().paused = false
 	self.pause_mode = Node.PAUSE_MODE_INHERIT
+
+
+func _on_StarbeastRoom_approachFinished():
+	remainingShakeDurationSeconds = shakeDurationSeconds

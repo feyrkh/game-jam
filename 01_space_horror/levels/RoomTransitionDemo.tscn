@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://props/StrobeLight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/starbeast/StarbeastRoom.tscn" type="PackedScene" id=6]
 
 [node name="RoomTransitionDemo" type="Node2D"]
 __meta__ = {
@@ -63,9 +64,11 @@ rotateSpeed = 0.1
 [node name="Room Cameras" type="Node" parent="."]
 
 [node name="Room 1" parent="Room Cameras" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 460.62, 257.563 )
 
 [node name="Room 2" parent="Room Cameras" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 1676.76, 275.522 )
 
 [node name="Hall 1R" parent="Room Cameras" instance=ExtResource( 3 )]
@@ -75,11 +78,13 @@ scale = Vector2( 0.5, 0.5 )
 cameraFocus = 3
 
 [node name="Hall 1L" parent="Room Cameras" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 108.466, 264.044 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 2
 
 [node name="Hall 2L" parent="Room Cameras" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 1319.31, 268.731 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 2
@@ -97,7 +102,6 @@ scale = Vector2( 0.5, 0.5 )
 cameraFocus = 4
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 468.336, 269.99 )
 current = true
 process_mode = 0
@@ -108,3 +112,8 @@ drag_margin_right = 0.0
 drag_margin_bottom = 0.0
 targetPath = NodePath("../../RoomTransitionDemo/Player")
 following = true
+
+[node name="StarbeastRoom" parent="." instance=ExtResource( 6 )]
+position = Vector2( 478.264, -580.266 )
+z_index = -100
+[connection signal="approachFinished" from="StarbeastRoom" to="Camera2D" method="_on_StarbeastRoom_approachFinished"]
