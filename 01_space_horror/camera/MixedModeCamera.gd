@@ -11,7 +11,7 @@ var lastEnteredRegion
 func _ready():
 	target = get_node(targetPath)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if following:
 		position = target.position
 

@@ -16,11 +16,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walk_right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk_up",
@@ -29,6 +24,11 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walk_right",
 "speed": 5.0
 } ]
 
@@ -59,6 +59,8 @@ __meta__ = {
 texture = ExtResource( 8 )
 offset = Vector2( 48, -75 )
 texture_scale = 3.0
+energy = 0.65
+mode = 2
 range_height = 44.0
 shadow_enabled = true
 shadow_gradient_length = 88.1
