@@ -34,7 +34,7 @@ __meta__ = {
 pause_mode = 2
 position = Vector2( 1510.79, 75.5946 )
 rotation = 0.925025
-rotateSpeed = 0.935
+rotateSpeed = 0.245
 
 [node name="StrobeLight3" parent="." instance=ExtResource( 5 )]
 pause_mode = 2
@@ -63,10 +63,9 @@ rotateSpeed = 0.1
 [node name="Room Cameras" type="Node" parent="."]
 
 [node name="Room 1" parent="Room Cameras" instance=ExtResource( 3 )]
-visible = false
+position = Vector2( 460.62, 257.563 )
 
 [node name="Room 2" parent="Room Cameras" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 1676.76, 275.522 )
 
 [node name="Hall 1R" parent="Room Cameras" instance=ExtResource( 3 )]
@@ -76,13 +75,11 @@ scale = Vector2( 0.5, 0.5 )
 cameraFocus = 3
 
 [node name="Hall 1L" parent="Room Cameras" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 108.466, 264.044 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 2
 
 [node name="Hall 2L" parent="Room Cameras" instance=ExtResource( 3 )]
-visible = false
 position = Vector2( 1319.31, 268.731 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 2
@@ -100,7 +97,8 @@ scale = Vector2( 0.5, 0.5 )
 cameraFocus = 4
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 457.19, 262.274 )
+visible = false
+position = Vector2( 468.336, 269.99 )
 current = true
 process_mode = 0
 smoothing_speed = 15.0
