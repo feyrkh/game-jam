@@ -4,7 +4,7 @@ enum FocusDirection {Center, Top, Left, Right, Bottom}
 
 export(FocusDirection) var cameraFocus = FocusDirection.Center
 
-onready var camera:MixedModeCamera
+onready var camera:Camera2D
 onready var shape:RectangleShape2D = $CollisionShape2D.shape
 
 
@@ -23,12 +23,16 @@ func _ready():
 	elif cameraFocus == FocusDirection.Left:
 		$CameraFocus.position = self.position - Vector2(shape.extents.x/2, 0)
 
-func _on_FixedCameraTrigger_body_entered(body):
+func _on_FixedCameraTrigger_body_entered(_body):
 	if camera == null:
 		return
 	if camera.has_method("on_fixed_mode_entered"):
 		camera.on_fixed_mode_entered($CameraFocus)
+	if cameraFocus == FocusDirection.Center and camera.has_method("transitionToNextRegion"):
+		camera.transitionToNextRegion()
 
-func _on_FixedCameraTrigger_body_exited(body):
+func _on_FixedCameraTrigger_body_exited(_body):
 	if camera.has_method("on_fixed_mode_exited"):
 		camera.on_fixed_mode_exited($CameraFocus)
+	if cameraFocus == FocusDirection.Center and camera.has_method("transitionToNextRegion"):
+		camera.transitionToNextRegion()

@@ -11,19 +11,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Camera2D" parent="." instance=ExtResource( 4 )]
-position = Vector2( 457.19, 262.274 )
-current = true
-process_mode = 0
-smoothing_enabled = true
-smoothing_speed = 15.0
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
-targetPath = NodePath("../../RoomTransitionDemo/Player")
-following = true
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 48, 48 )
@@ -44,26 +31,31 @@ __meta__ = {
 }
 
 [node name="StrobeLight" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
 position = Vector2( 1510.79, 75.5946 )
 rotation = 0.925025
 rotateSpeed = 0.935
 
 [node name="StrobeLight3" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
 position = Vector2( 1512.4, 462.784 )
 rotation = -0.888373
 rotateSpeed = 1.159
 
 [node name="StrobeLight4" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
 position = Vector2( 1849.78, 461.178 )
 rotation = -1.77675
 rotateSpeed = 1.122
 
 [node name="StrobeLight5" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
 position = Vector2( 1671.45, 269.993 )
 rotation = 1.39626
 rotateSpeed = 0.387
 
 [node name="StrobeLight2" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
 position = Vector2( 458.472, 263.566 )
 rotation = -3.68264
 rotateSpeed = 0.1
@@ -106,3 +98,15 @@ visible = false
 position = Vector2( 454.423, 619.688 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 4
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 457.19, 262.274 )
+current = true
+process_mode = 0
+smoothing_speed = 15.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+targetPath = NodePath("../../RoomTransitionDemo/Player")
+following = true
