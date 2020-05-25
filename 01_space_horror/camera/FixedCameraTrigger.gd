@@ -22,7 +22,7 @@ func _ready():
 		$CameraFocus.position = self.position + Vector2(shape.extents.x/2, 0)
 	elif cameraFocus == FocusDirection.Left:
 		$CameraFocus.position = self.position - Vector2(shape.extents.x/2, 0)
-
+#test
 func _on_FixedCameraTrigger_body_entered(_body):
 	if camera == null:
 		return
