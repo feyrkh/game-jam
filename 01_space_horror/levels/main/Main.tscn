@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/StrobeLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 __meta__ = {
@@ -11,6 +12,8 @@ __meta__ = {
 }
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 440.079, 134.16 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
 targetPath = NodePath("../Player")
@@ -23,7 +26,7 @@ format = 1
 tile_data = PoolIntArray( 0, 4, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 73.0494, 73.015 )
+position = Vector2( 100.907, 96.4685 )
 speed = 300
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -33,3 +36,6 @@ color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 [node name="StrobeLight" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 246.411, 194.434 )
+
+[node name="FixedCameraArea" parent="." instance=ExtResource( 5 )]
+position = Vector2( 120.068, 80.5437 )

@@ -38,11 +38,11 @@ position = Vector2( 131.741, 114.069 )
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -1000.0
-margin_top = -1000.0
-margin_right = 1000.0
-margin_bottom = 1000.0
-color = Color( 0.214379, 0.054902, 0.054902, 1 )
+margin_left = -148.616
+margin_top = -107.562
+margin_right = 828.384
+margin_bottom = 526.438
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
