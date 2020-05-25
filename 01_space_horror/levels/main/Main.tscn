@@ -12,6 +12,7 @@ __meta__ = {
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
 current = true
+zoom = Vector2( 0.25, 0.25 )
 targetPath = NodePath("../Player")
 following = true
 

@@ -3,10 +3,9 @@
 [ext_resource path="res://camera/FixedCameraTrigger.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 240, 240 )
+extents = Vector2( 120, 80 )
 
 [node name="FixedCameraArea" type="Area2D"]
-position = Vector2( 468.336, 260.992 )
 collision_layer = 524288
 collision_mask = 0
 script = ExtResource( 1 )
