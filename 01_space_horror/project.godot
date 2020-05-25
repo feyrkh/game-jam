@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Camera2D",
+"class": "MixedModeCamera",
+"language": "GDScript",
+"path": "res://camera/MixedModeCamera.gd"
+} ]
 _global_script_class_icons={
-
+"MixedModeCamera": ""
 }
 
 [application]
@@ -19,9 +24,20 @@ config/name="prototype_game"
 run/main_scene="res://levels/main/Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=500
+window/size/height=500
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "vnen.tiled_importer" )
+
+[layer_names]
+
+2d_physics/layer_20="Player Triggers"
 
 [rendering]
 

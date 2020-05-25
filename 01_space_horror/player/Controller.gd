@@ -12,7 +12,7 @@ func _ready():
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('ui_right'):
-		print_debug("moving right")
+
 		velocity.x += 1
 	if Input.is_action_pressed('ui_left'):
 		velocity.x -= 1
