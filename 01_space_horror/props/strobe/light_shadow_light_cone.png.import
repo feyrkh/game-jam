@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/light_shadow_light_cone.png-15485a5ed1ce280f98c9dcfec4a94b96.stex"
+path="res://.import/light_shadow_light_cone.png-b8b0263d64a2d6b4d206cd827006b5cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://props/light_shadow_light_cone.png"
-dest_files=[ "res://.import/light_shadow_light_cone.png-15485a5ed1ce280f98c9dcfec4a94b96.stex" ]
+source_file="res://props/strobe/light_shadow_light_cone.png"
+dest_files=[ "res://.import/light_shadow_light_cone.png-b8b0263d64a2d6b4d206cd827006b5cd.stex" ]
 
 [params]
 

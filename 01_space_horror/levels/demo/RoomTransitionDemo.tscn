@@ -3,8 +3,9 @@
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://props/StrobeLight.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/strobe/StrobeLight.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/starbeast/StarbeastRoom.tscn" type="PackedScene" id=6]
+
 
 [node name="RoomTransitionDemo" type="Node2D"]
 __meta__ = {
