@@ -27,7 +27,7 @@ format = 1
 tile_data = PoolIntArray( 65518, 5, 0, 0, 4, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 482.44, 77.6062 )
+position = Vector2( 417.752, 106.247 )
 speed = 80
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -40,6 +40,6 @@ color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 position = Vector2( 491, 81 )
 
 [node name="Hall1L" parent="Node" instance=ExtResource( 5 )]
-position = Vector2( 310.304, 81 )
+position = Vector2( 311.304, 81 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 2
