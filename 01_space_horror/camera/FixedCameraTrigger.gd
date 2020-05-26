@@ -22,8 +22,9 @@ func _ready():
 		$CameraFocus.position = self.position + Vector2(shape.extents.x/2, 0)
 	elif cameraFocus == FocusDirection.Left:
 		$CameraFocus.position = self.position - Vector2(shape.extents.x/2, 0)
-#test
+
 func _on_FixedCameraTrigger_body_entered(_body):
+	print_debug("entered FixedCameraTrigger")
 	var fixedX
 	var fixedY
 	if camera == null:
@@ -43,5 +44,6 @@ func _on_FixedCameraTrigger_body_entered(_body):
 		camera.on_fixed_mode_entered($CameraFocus, fixedX, fixedY, cameraFocus == FocusDirection.Center)
 
 func _on_FixedCameraTrigger_body_exited(_body):
+	print_debug("exited FixedCameraTrigger")
 	if camera.has_method("on_fixed_mode_exited"):
 		camera.on_fixed_mode_exited($CameraFocus, cameraFocus == FocusDirection.Center)

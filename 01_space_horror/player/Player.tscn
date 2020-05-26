@@ -33,7 +33,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10.0545, 6.89413 )
+extents = Vector2( 10.0545, 4.35338 )
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 0.01
@@ -50,7 +50,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColliderShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 2.58013 )
 shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -69,11 +70,27 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TriggerZoneBodyCollider" type="KinematicBody2D" parent="."]
+[node name="InteractTriggerArea" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 786432
+collision_mask = 262144
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="ColliderShape2D" type="CollisionShape2D" parent="TriggerZoneBodyCollider"]
+[node name="DetectionShape" type="CollisionShape2D" parent="InteractTriggerArea"]
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MapDetector" type="KinematicBody2D" parent="."]
+collision_layer = 0
+collision_mask = 524288
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DetectionShape" type="CollisionShape2D" parent="MapDetector"]
 shape = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true

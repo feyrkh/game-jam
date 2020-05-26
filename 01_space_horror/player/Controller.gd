@@ -5,14 +5,22 @@ export (int) var speed = 200
 var velocity = Vector2()
 
 onready var animatedSprite:AnimatedSprite = $AnimatedSprite
+onready var triggerZoneArea:Area2D = $InteractTriggerArea
 
 func _ready():
 	set_process_input(true)
 
 func get_input():
 	velocity = Vector2()
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		var overlaps:Array = triggerZoneArea.get_overlapping_areas()
+		if !overlaps.empty():
+			var interactable:Interactable = overlaps[0].get_parent()
+			if interactable != null:
+				interactable.interact()
+	
 	if Input.is_action_pressed('ui_right'):
-
 		velocity.x += 1
 	if Input.is_action_pressed('ui_left'):
 		velocity.x -= 1

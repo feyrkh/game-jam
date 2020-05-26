@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://code/Interactable.gd"
+}, {
 "base": "Camera2D",
 "class": "MixedModeCamera",
 "language": "GDScript",
 "path": "res://camera/MixedModeCamera.gd"
 } ]
 _global_script_class_icons={
+"Interactable": "",
 "MixedModeCamera": ""
 }
 
