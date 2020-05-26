@@ -24,7 +24,7 @@ func _ready():
 	
 func _physics_process(_delta):
 	if following:
-		position = target.position
+		position = target.global_position
 		if fixedX: position.x = lastX
 		if fixedY: position.y = lastY
 		
