@@ -33,6 +33,8 @@ func _physics_process(_delta):
 		remainingShakeDurationSeconds -= _delta
 
 func on_fixed_mode_entered(fixedArea:Position2D, fx:bool, fy:bool, shouldTransition:bool):
+	if !fixedX and !fixedY: # if we were in a Center area previously, basically
+		shouldTransition = true
 	lastEnteredRegion = fixedArea
 	following = false
 	if shouldTransition:
@@ -47,13 +49,13 @@ func on_fixed_mode_entered(fixedArea:Position2D, fx:bool, fy:bool, shouldTransit
 	
 
 func on_fixed_mode_exited(fixedArea:Position2D, shouldTransition:bool):
-	if shouldTransition:
-		startTransition()
 	if lastEnteredRegion == fixedArea:
+		if shouldTransition:
+			startTransition()
 		following = true
 		print_debug("following player")
-	if shouldTransition:
-		finishTransition()
+		if shouldTransition:
+			finishTransition()
 		
 func startTransition():
 	if get_tree() == null:
