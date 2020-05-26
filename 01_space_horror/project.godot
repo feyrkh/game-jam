@@ -60,7 +60,9 @@ texture={
 
 [layer_names]
 
-2d_physics/layer_20="Player Triggers"
+2d_physics/layer_1="Obstructions"
+2d_physics/layer_19="Player Interaction Triggers"
+2d_physics/layer_20="Player Movement Triggers"
 
 [rendering]
 
