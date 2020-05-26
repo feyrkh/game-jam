@@ -24,15 +24,24 @@ func _ready():
 		$CameraFocus.position = self.position - Vector2(shape.extents.x/2, 0)
 #test
 func _on_FixedCameraTrigger_body_entered(_body):
+	var fixedX
+	var fixedY
 	if camera == null:
 		return
+		
+	if cameraFocus == FocusDirection.Center:
+		fixedX = false
+		fixedY = false
+	elif cameraFocus == FocusDirection.Left or cameraFocus == FocusDirection.Right:
+		fixedX = false
+		fixedY = true
+	elif cameraFocus == FocusDirection.Up or cameraFocus == FocusDirection.Down:
+		fixedX = true
+		fixedY = false
+		
 	if camera.has_method("on_fixed_mode_entered"):
-		camera.on_fixed_mode_entered($CameraFocus)
-	if cameraFocus == FocusDirection.Center and camera.has_method("transitionToNextRegion"):
-		camera.transitionToNextRegion()
+		camera.on_fixed_mode_entered($CameraFocus, fixedX, fixedY, cameraFocus == FocusDirection.Center)
 
 func _on_FixedCameraTrigger_body_exited(_body):
 	if camera.has_method("on_fixed_mode_exited"):
-		camera.on_fixed_mode_exited($CameraFocus)
-	if cameraFocus == FocusDirection.Center and camera.has_method("transitionToNextRegion"):
-		camera.transitionToNextRegion()
+		camera.on_fixed_mode_exited($CameraFocus, cameraFocus == FocusDirection.Center)

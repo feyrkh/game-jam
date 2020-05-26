@@ -37,6 +37,7 @@ tracks/0/keys = {
 position = Vector2( 131.741, 114.069 )
 z_index = 4000
 z_as_relative = false
+smoothing_speed = 10.0
 script = ExtResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -44,7 +45,7 @@ margin_left = -500.0
 margin_top = -500.0
 margin_right = 500.0
 margin_bottom = 500.0
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

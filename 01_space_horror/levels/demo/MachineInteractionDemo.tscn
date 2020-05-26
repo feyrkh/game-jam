@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 21.9272 ]
+}
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 488.539, 76.5638 )
+offset = Vector2( 0, 0.546 )
+current = true
+zoom = Vector2( 0.25, 0.25 )
+targetPath = NodePath("../Player")
+following = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 370.205, 0 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 13, 13 )
+format = 1
+tile_data = PoolIntArray( 65518, 5, 0, 0, 4, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 482.44, 77.6062 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Room1" parent="Node" instance=ExtResource( 5 )]
+position = Vector2( 490, 81 )
+
+[node name="Hall1L" parent="Node" instance=ExtResource( 5 )]
+position = Vector2( 308.304, 81 )
+scale = Vector2( 0.5, 0.5 )
+cameraFocus = 2
