@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/main/left_exit_room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/strobe/StrobeLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/main/hall_1.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
@@ -23,22 +22,14 @@ following = true
 
 [node name="backgrounds" type="Node" parent="."]
 
-[node name="FixedCameraArea" parent="backgrounds" instance=ExtResource( 5 )]
-position = Vector2( 320.659, 84.971 )
-scale = Vector2( 0.5, 0.5 )
-cameraFocus = 2
-
-[node name="FixedCameraArea2" parent="backgrounds" instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 501.079, 76.791 )
-
 [node name="hallway" parent="backgrounds" instance=ExtResource( 6 )]
+position = Vector2( 260.803, 75.399 )
 
 [node name="stargazing2" parent="backgrounds" instance=ExtResource( 1 )]
+position = Vector2( 500.083, 68.2771 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-visible = false
-position = Vector2( 493.679, 107.235 )
+position = Vector2( 449.632, 93.6155 )
 z_index = 4
 speed = 300
 
@@ -49,6 +40,3 @@ color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 [node name="StrobeLight" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 246.411, 194.434 )
-
-[node name="stargazing2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 500.083, 68.2771 )

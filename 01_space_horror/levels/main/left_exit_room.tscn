@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/stargazing2.png" type="Texture" id=1]
+[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 120, 4.48035 )
@@ -38,3 +39,6 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1.36224, 75.9453 )
 shape = SubResource( 1 )
+
+[node name="FixedCameraArea" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1.03012, 0.239563 )

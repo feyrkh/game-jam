@@ -13,15 +13,15 @@ func _ready():
 		camera = get_tree().get_root().find_node("*Camera2D", true, false)
 	print_debug("Camera: ", camera)
 	if cameraFocus == FocusDirection.Center:
-		$CameraFocus.position = self.position
+		$CameraFocus.position = self.global_position
 	elif cameraFocus == FocusDirection.Top:
-		$CameraFocus.position = self.position - Vector2(0, shape.extents.y/2)
+		$CameraFocus.position = self.global_position - Vector2(0, shape.extents.y/2)
 	elif cameraFocus == FocusDirection.Bottom:
-		$CameraFocus.position = self.position + Vector2(0, shape.extents.y/2)
+		$CameraFocus.position = self.global_position + Vector2(0, shape.extents.y/2)
 	elif cameraFocus == FocusDirection.Right:
-		$CameraFocus.position = self.position + Vector2(shape.extents.x/2, 0)
+		$CameraFocus.position = self.global_position + Vector2(shape.extents.x/2, 0)
 	elif cameraFocus == FocusDirection.Left:
-		$CameraFocus.position = self.position - Vector2(shape.extents.x/2, 0)
+		$CameraFocus.position = self.global_position - Vector2(shape.extents.x/2, 0)
 
 func _on_FixedCameraTrigger_body_entered(_body):
 	print_debug("entered FixedCameraTrigger")
