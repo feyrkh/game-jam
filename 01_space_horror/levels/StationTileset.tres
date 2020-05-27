@@ -121,11 +121,11 @@ points = PoolVector2Array( 250.941, 96.6092, -5.81378, 96.6092, -5.81378, -3.302
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
-4/name = "stargazing2.png 4"
+4/name = "floor tile"
 4/texture = ExtResource( 2 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 0, 0, 240, 161 )
+4/region = Rect2( 27, 34, 15, 15 )
 4/tile_mode = 0
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
