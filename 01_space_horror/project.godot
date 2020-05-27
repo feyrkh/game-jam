@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "MixedModeCamera",
 "language": "GDScript",
 "path": "res://camera/MixedModeCamera.gd"
+}, {
+"base": "PopupPanel",
+"class": "PowerStationControlPanel",
+"language": "GDScript",
+"path": "res://props/powerStation/PowerStationControlPanel.gd"
 } ]
 _global_script_class_icons={
 "Interactable": "",
-"MixedModeCamera": ""
+"MixedModeCamera": "",
+"PowerStationControlPanel": ""
 }
 
 [application]

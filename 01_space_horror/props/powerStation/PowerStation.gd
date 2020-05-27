@@ -14,13 +14,16 @@ func setPowerLevel(var amt):
 			powerLevel = 0
 			$AnimatedSprite.play("noPower")
 
-func powerUp():
+func powerUp(controlPanel:PowerStationControlPanel):
 	setPowerLevel(powerLevel + 1)
+	controlPanel.setPowerLevel(powerLevel)
+	
 
 func interact():
 	.interact()
 	disableUserInput()
-	var popup = ControlPanelScene.instance()
+	var popup:PowerStationControlPanel = ControlPanelScene.instance()
+	popup.setPowerLevel(powerLevel)
 	popup.connect("controlPanelClosed", self, "restoreUserInput")
 	popup.connect("powerUp", self, "powerUp")
 	get_tree().get_nodes_in_group("ui_layer")[0].add_child(popup)
