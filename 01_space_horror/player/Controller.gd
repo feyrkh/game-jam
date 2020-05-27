@@ -3,15 +3,23 @@ extends KinematicBody2D
 export (int) var speed = 200
 
 var velocity = Vector2()
+var processInput = true
 
 onready var animatedSprite:AnimatedSprite = $AnimatedSprite
 onready var triggerZoneArea:Area2D = $InteractTriggerArea
 
 func _ready():
-	set_process_input(true)
+	enableInput()
+	
+func disableInput():
+	processInput = false
+	
+func enableInput():
+	processInput = true
 
 func get_input():
 	velocity = Vector2()
+	if !processInput: return
 	
 	if Input.is_action_just_pressed("ui_accept"):
 		var overlaps:Array = triggerZoneArea.get_overlapping_areas()

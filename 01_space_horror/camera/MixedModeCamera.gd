@@ -60,6 +60,8 @@ func on_fixed_mode_exited(fixedArea:Position2D, shouldTransition:bool):
 func startTransition():
 	if get_tree() == null:
 		return
+	for player in get_tree().get_nodes_in_group("player"):
+		if player.has_method("disableInput"): player.disableInput()
 	get_tree().paused = true
 	$AnimationPlayer.play("fadeout")
 	yield($AnimationPlayer, "animation_finished")
@@ -71,6 +73,8 @@ func finishTransition():
 	$AnimationPlayer.play("fadein")
 	yield($AnimationPlayer, "animation_finished")
 	get_tree().paused = false
+	for player in get_tree().get_nodes_in_group("player"):
+		if player.has_method("enableInput"): player.enableInput()
 	self.pause_mode = Node.PAUSE_MODE_INHERIT
 
 

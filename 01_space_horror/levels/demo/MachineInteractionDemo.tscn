@@ -34,7 +34,7 @@ tile_data = PoolIntArray( 65518, 5, 0, 0, 4, 0 )
 [node name="YSort" type="YSort" parent="TileMap"]
 
 [node name="Player" parent="TileMap/YSort" instance=ExtResource( 2 )]
-position = Vector2( 47.9707, 106.247 )
+position = Vector2( 48.5466, 106.247 )
 speed = 80
 
 [node name="PowerStation2" parent="TileMap/YSort" instance=ExtResource( 3 )]
@@ -57,3 +57,7 @@ visible = false
 position = Vector2( 311.304, 81 )
 scale = Vector2( 0.5, 0.5 )
 cameraFocus = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
+"ui_layer",
+]]
