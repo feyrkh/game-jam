@@ -5,7 +5,6 @@ enum MarkerMoveStyle {Bounce, WrapLeft, WrapRight}
 export var minSecondsPerBounce = 0.5
 export var maxSecondsPerBounce = 2.0
 export var markerSpeedIncreasePerDifficultyLevel = 0.2
-export(MarkerMoveStyle) var markerMoveStyle = MarkerMoveStyle.Bounce
 export var successWidth = 60
 export var successDifficultyPenalty = 15
 export var successLineMaxPercentOffsetFromCenter = 100
@@ -18,6 +17,7 @@ var successLineEnd
 var markerX
 var markerResetStyleBounce
 var markerDirection
+var markerMoveStyle
 
 
 export(NodePath) var dangerLinePath
