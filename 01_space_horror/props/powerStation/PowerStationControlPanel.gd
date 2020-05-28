@@ -1,4 +1,4 @@
-extends PopupPanel
+extends Node2D
 
 class_name PowerStationControlPanel
 
@@ -11,10 +11,6 @@ var powerLevel
 func _ready():
 	emit_signal("controlPanelOpened")
 	set_process_input(true)
-	popup_centered()
-	print_debug("Popup centered at: ", self.rect_global_position)
-	print_debug("Popup visible: ", self.visible)
-	print_debug("Popup position: ", self.rect_position)
 
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_accept"):

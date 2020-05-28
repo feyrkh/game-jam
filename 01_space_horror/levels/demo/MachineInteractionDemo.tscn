@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/powerStation/PowerStation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/main/left_exit_room.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 __meta__ = {
@@ -24,6 +25,9 @@ zoom = Vector2( 0.25, 0.25 )
 targetPath = NodePath("../TileMap/YSort/Player")
 following = true
 
+[node name="stargazing2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 495.321, 76.6603 )
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 370.205, 0 )
 tile_set = ExtResource( 1 )
@@ -34,7 +38,7 @@ tile_data = PoolIntArray( 65518, 5, 0, 0, 4, 0 )
 [node name="YSort" type="YSort" parent="TileMap"]
 
 [node name="Player" parent="TileMap/YSort" instance=ExtResource( 2 )]
-position = Vector2( 48.5466, 106.247 )
+position = Vector2( 61.9815, 93.5192 )
 speed = 80
 
 [node name="PowerStation2" parent="TileMap/YSort" instance=ExtResource( 3 )]
