@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "BaseMinigame",
+"language": "GDScript",
+"path": "res://props/powerStation/minigame/BaseMinigame.gd"
+}, {
 "base": "Node2D",
 "class": "Interactable",
 "language": "GDScript",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://props/powerStation/PowerStationControlPanel.gd"
 } ]
 _global_script_class_icons={
+"BaseMinigame": "",
 "Interactable": "",
 "MixedModeCamera": "",
 "PowerStationControlPanel": ""

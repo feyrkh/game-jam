@@ -52,6 +52,14 @@ __meta__ = {
 
 [node name="SimpleLineGame" type="Node2D" parent="Minigame"]
 script = ExtResource( 3 )
+minSecondsPerBounce = 0.75
+markerSpeedIncreasePerDifficultyLevel = 0.2
+successLineMaxPercentOffsetFromCenter = 45
+markerInZoneColor = Color( 0.945098, 1, 0, 1 )
+markerOutOfZoneColor = Color( 0.313726, 0.305882, 0.305882, 1 )
+dangerLinePath = NodePath("DangerLine")
+successLinePath = NodePath("DangerLine/SuccessLine")
+markerPath = NodePath("DangerLine/Marker")
 
 [node name="DangerLine" type="Line2D" parent="Minigame/SimpleLineGame"]
 position = Vector2( 343.637, 187.043 )
@@ -66,6 +74,6 @@ width_curve = SubResource( 1 )
 default_color = Color( 0.0313726, 1, 0, 1 )
 
 [node name="Marker" type="Line2D" parent="Minigame/SimpleLineGame/DangerLine"]
-points = PoolVector2Array( 0, -20, 0, 20 )
+points = PoolVector2Array( 0, -30, 0, 30 )
 width = 5.0
 default_color = Color( 0.992157, 1, 0, 1 )
