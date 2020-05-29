@@ -6,7 +6,6 @@
 [ext_resource path="res://props/strobe/StrobeLight.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/starbeast/StarbeastRoom.tscn" type="PackedScene" id=6]
 
-
 [node name="RoomTransitionDemo" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
