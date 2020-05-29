@@ -21,6 +21,7 @@ var lastEnteredRegion
 func _ready():
 	target = get_node(targetPath)
 	visible = true
+	pause_mode = PAUSE_MODE_PROCESS
 	
 func _physics_process(_delta):
 	if following:
@@ -37,45 +38,16 @@ func on_fixed_mode_entered(fixedArea:Position2D, fx:bool, fy:bool, shouldTransit
 		shouldTransition = true
 	lastEnteredRegion = fixedArea
 	following = false
-	if shouldTransition:
-		startTransition()
 	position = fixedArea.position
 	self.fixedX = fx
 	self.fixedY = fy
 	self.lastX = position.x
 	self.lastY = position.y
-	if shouldTransition:
-		finishTransition()
 	
 
 func on_fixed_mode_exited(fixedArea:Position2D, shouldTransition:bool):
 	if lastEnteredRegion == fixedArea:
-		if shouldTransition:
-			startTransition()
 		following = true
-		print_debug("following player")
-		if shouldTransition:
-			finishTransition()
-		
-func startTransition():
-	if get_tree() == null:
-		return
-	for player in get_tree().get_nodes_in_group("player"):
-		if player.has_method("disableInput"): player.disableInput()
-	get_tree().paused = true
-	$AnimationPlayer.play("fadeout")
-	yield($AnimationPlayer, "animation_finished")
-	self.pause_mode = Node.PAUSE_MODE_PROCESS
-	
-func finishTransition():
-	$Timer.start()
-	yield($Timer, "timeout")
-	$AnimationPlayer.play("fadein")
-	yield($AnimationPlayer, "animation_finished")
-	get_tree().paused = false
-	for player in get_tree().get_nodes_in_group("player"):
-		if player.has_method("enableInput"): player.enableInput()
-	self.pause_mode = Node.PAUSE_MODE_INHERIT
 
 
 func _on_StarbeastRoom_approachFinished():

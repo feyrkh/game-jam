@@ -5,6 +5,7 @@
 
 [node name="hallway" type="Sprite"]
 scale = Vector2( -1, 1 )
+z_index = -10
 texture = ExtResource( 1 )
 
 [node name="FixedCameraArea" parent="." instance=ExtResource( 2 )]

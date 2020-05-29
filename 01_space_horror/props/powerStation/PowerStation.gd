@@ -27,8 +27,8 @@ func disableUserInput():
 	for player in get_tree().get_nodes_in_group("player"):
 		if player.has_method("disableInput"): player.disableInput()
 	
-func restoreUserInput(powerLevel):
-	setPowerLevel(powerLevel)
+func restoreUserInput(newPowerLevel):
+	setPowerLevel(newPowerLevel)
 	for player in get_tree().get_nodes_in_group("player"):
 		if player.has_method("enableInput"): player.enableInput()
 	

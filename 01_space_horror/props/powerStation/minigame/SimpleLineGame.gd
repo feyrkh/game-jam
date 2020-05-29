@@ -14,7 +14,6 @@ export(Color) var markerOutOfZoneColor = Color(1.0, 0, 0, 1.0)
 var markerPixelsPerSec
 var successLineStart
 var successLineEnd
-var markerX
 var markerResetStyleBounce
 var markerDirection
 var markerMoveStyle
@@ -60,7 +59,7 @@ func _unhandled_key_input(event):
 		get_tree().set_input_as_handled()
 
 func markerInsideSuccessZone():
-	var markerX = marker.points[0].x	
+	var markerX = marker.points[0].x
 	return (markerX >= successLine.points[0].x) and (markerX <= successLine.points[-1].x)
 	
 func moveMarkerTo(xCoord):

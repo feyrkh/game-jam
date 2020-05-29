@@ -4,6 +4,10 @@ export (int) var speed = 200
 
 var velocity = Vector2()
 var processInput = true
+# if you're in a room where you can only move up and down, disable this
+var leftRightInput = true
+# if you're in a room where you can only move left and right, disable this
+var upDownInput = true
 
 onready var animatedSprite:AnimatedSprite = $AnimatedSprite
 onready var triggerZoneArea:Area2D = $InteractTriggerArea
@@ -28,14 +32,17 @@ func get_input():
 			if interactable != null:
 				interactable.interact()
 	
-	if Input.is_action_pressed('ui_right'):
-		velocity.x += 1
-	if Input.is_action_pressed('ui_left'):
-		velocity.x -= 1
-	if Input.is_action_pressed('ui_down'):
-		velocity.y += 1
-	if Input.is_action_pressed('ui_up'):
-		velocity.y -= 1
+	if leftRightInput:
+		if Input.is_action_pressed('ui_right'):
+			velocity.x += 1
+		if Input.is_action_pressed('ui_left'):
+			velocity.x -= 1
+
+	if upDownInput:
+		if Input.is_action_pressed('ui_down'):
+			velocity.y += 1
+		if Input.is_action_pressed('ui_up'):
+			velocity.y -= 1
 		
 	if velocity.x < 0:
 		animatedSprite.flip_h = true
@@ -57,3 +64,19 @@ func get_input():
 func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
+
+func teleport(newGlobalPosition:Vector2):
+	if get_tree() == null:
+		return
+	disableInput()
+	get_tree().paused = true
+	$FadeOutRect.set_global_position(global_position - $FadeOutRect.rect_size/2)
+	$ScreenFadeAnimationPlayer.play("fadeout")
+	yield($ScreenFadeAnimationPlayer, "animation_finished")
+	global_position = newGlobalPosition
+	$ScreenFadeTimer.start()
+	get_tree().paused = false
+	yield($ScreenFadeTimer, "timeout")
+	$ScreenFadeAnimationPlayer.play("fadein")
+	yield($ScreenFadeAnimationPlayer, "animation_finished")
+	enableInput()
