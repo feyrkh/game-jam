@@ -15,6 +15,7 @@ func startApproach():
 func startAttack():
 	$AnimationPlayer.playback_speed = 1
 	$AnimationPlayer.play("attack")
+	get_tree().call_group("damagable", "damage")
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name):

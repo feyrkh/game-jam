@@ -29,6 +29,11 @@ func _unhandled_key_input(event):
 		emit_signal("controlPanelClosed", powerLevel)
 		get_tree().set_input_as_handled()
 
+func damage():
+	self.queue_free()
+	emit_signal("controlPanelClosed", powerLevel)
+	
+
 func setPowerLevel(newPowerLevel):
 	powerLevel = newPowerLevel
 	var powerLabel:Label = find_node("PowerLabel")
@@ -38,6 +43,6 @@ func powerUp():
 	setPowerLevel(min(3, powerLevel+1))
 	
 func powerDown():
-	setPowerLevel(max(0, powerLevel-1))
 	shaking = failureShakeSecondsPerPowerLevel * powerLevel + 0.05
+	setPowerLevel(0)
 
