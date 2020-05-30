@@ -22,7 +22,8 @@ default_color = Color( 0.4, 0.501961, 1, 1 )
 
 [node name="AcceptableLine" type="Line2D" parent="."]
 position = Vector2( 0, 13.611 )
-points = PoolVector2Array( -0.0558243, -20.5053, -0.0558243, -26.5626 )
+rotation = 3.14159
+points = PoolVector2Array( -20, 0, -24, 0 )
 width = 1.0
 default_color = Color( 1, 0.976471, 0.4, 1 )
 

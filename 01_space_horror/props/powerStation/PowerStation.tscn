@@ -7,25 +7,25 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "lowPower",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "noPower",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "lowPower",
+"name": "medPower",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "hiPower",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "medPower",
-"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

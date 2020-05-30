@@ -9,6 +9,7 @@ func _ready():
 
 func _on_Teleporter_body_entered(body:KinematicBody2D):
 	# find teleportable body in scene tree if possible
+	print_debug("Teleporting...")
 	var curNode = body
 	while curNode != null and curNode.get_groups().find("teleportable") == -1:
 		curNode = curNode.get_parent()

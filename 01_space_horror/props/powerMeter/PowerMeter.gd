@@ -6,6 +6,7 @@ export var powerConsoleGroupName = "shieldConsole"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var acceptableLineRotation = max(0, min(180, 180 * acceptablePowerPercent/100.0))
+	$AcceptableLine.rotation_degrees = acceptableLineRotation
 	calculatePowerLevel()
 	
 func calculatePowerLevel():

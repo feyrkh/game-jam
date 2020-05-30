@@ -4,7 +4,7 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/powerStation/PowerStation.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/main/hall_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/main/left_exit_room.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/powerMeter/PowerMeter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://props/teleporter/Teleporter.tscn" type="PackedScene" id=8]
@@ -29,6 +29,9 @@ following = true
 
 [node name="Rooms" type="Node" parent="."]
 
+[node name="hallway" parent="Rooms" instance=ExtResource( 5 )]
+position = Vector2( 259.922, 82.782 )
+
 [node name="Room1" parent="Rooms" instance=ExtResource( 6 )]
 position = Vector2( 500.567, 77.2438 )
 z_index = -11
@@ -37,22 +40,16 @@ z_index = -11
 position = Vector2( -4.90411, -68.1718 )
 acceptablePowerPercent = 85
 
-[node name="Hall1L" parent="Rooms" instance=ExtResource( 5 )]
-position = Vector2( 311.304, 81 )
-scale = Vector2( 0.5, 0.5 )
-cameraFocus = 2
-
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 370.205, 0 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 13, 13 )
 format = 1
-tile_data = PoolIntArray( 65518, 5, 0, 0, 4, 0 )
 
 [node name="YSort" type="YSort" parent="TileMap"]
 
 [node name="Player" parent="TileMap/YSort" instance=ExtResource( 2 )]
-position = Vector2( 72.2844, 100.614 )
+position = Vector2( -58.901, 109.339 )
 speed = 80
 
 [node name="PowerStation2" parent="TileMap/YSort" instance=ExtResource( 3 )]
@@ -85,7 +82,7 @@ __meta__ = {
 position = Vector2( 367.1, 97.0206 )
 
 [node name="Position2D" type="Position2D" parent="Teleporters/Teleporter2"]
-position = Vector2( 44.1778, 4.19608 )
+position = Vector2( 59.3894, 3.5934 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
 "ui_layer",
