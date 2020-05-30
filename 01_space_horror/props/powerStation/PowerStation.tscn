@@ -1,49 +1,47 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://levels/demo/PowerStation.gd" type="Script" id=1]
 [ext_resource path="res://props/powerStation/PowerStation.gd" type="Script" id=2]
-[ext_resource path="res://player/player-down2.png" type="Texture" id=3]
-[ext_resource path="res://player/player-up2.png" type="Texture" id=4]
-[ext_resource path="res://player/player-down.png" type="Texture" id=5]
-[ext_resource path="res://player/player-right2.png" type="Texture" id=6]
+[ext_resource path="res://levels/tileterminalon.png" type="Texture" id=3]
+[ext_resource path="res://levels/tileterminaloff.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "noPower",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "lowPower",
-"speed": 5.0
+"speed": 1.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "hiPower",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "medPower",
-"speed": 5.0
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.96808, 6.23767 )
+extents = Vector2( 7.50866, 7.98593 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 6.11227, 5.5495 )
+extents = Vector2( 7.50866, 6.55534 )
 
 [node name="PowerStation" type="Node2D" groups=[
 "interactable",
+"shieldConsole",
 ]]
 position = Vector2( 76.6716, 106.162 )
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.0294962, 0.0763257 )
 frames = SubResource( 1 )
 animation = "noPower"
 script = ExtResource( 1 )
@@ -52,10 +50,16 @@ __meta__ = {
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 0, 4.18132 )
+position = Vector2( 0.504509, -0.0228882 )
 shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ActivationArea" type="Area2D" parent="."]
 collision_layer = 262144
@@ -65,10 +69,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
-position = Vector2( 0, 12 )
+position = Vector2( 0.504501, 12 )
 shape = SubResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 [connection signal="area_entered" from="ActivationArea" to="AnimatedSprite" method="_on_ActivationArea_area_entered"]
 [connection signal="area_exited" from="ActivationArea" to="AnimatedSprite" method="_on_ActivationArea_area_exited"]

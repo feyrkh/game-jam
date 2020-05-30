@@ -3,6 +3,11 @@ extends Interactable
 export(int) var powerLevel = 0 setget setPowerLevel
 const ControlPanelScene = preload("res://props/powerStation/PowerStationControlPanel.tscn")
 
+func getPowerLevel():
+	return powerLevel
+	
+func getMaxPowerLevel():
+	return 3
 	
 func setPowerLevel(var amt):
 	powerLevel = max(0, min(4, amt));
