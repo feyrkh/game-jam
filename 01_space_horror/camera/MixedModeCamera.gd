@@ -42,6 +42,7 @@ func on_fixed_mode_entered(fixedArea:Position2D, fx:bool, fy:bool, shouldTransit
 	lastEnteredRegion = fixedArea
 	following = false
 	position = fixedArea.position
+	originalPosition = position
 	self.fixedX = fx
 	self.fixedY = fy
 	self.lastX = position.x
