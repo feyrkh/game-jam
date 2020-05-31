@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="prototype_game"
-run/main_scene="res://levels/main/Main.tscn"
+run/main_scene="res://levels/splashscreen/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [display]

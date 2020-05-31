@@ -1,5 +1,6 @@
 extends Node2D
 
+var powerPercent = 0
 export var acceptablePowerPercent = 90
 export var powerConsoleGroupName = "shieldConsole"
 
@@ -16,7 +17,7 @@ func calculatePowerLevel():
 	for supplier in powerSuppliers:
 		maxPowerLevel += supplier.getMaxPowerLevel()
 		curPowerLevel += supplier.getPowerLevel()
-	var powerPercent = curPowerLevel/maxPowerLevel
+	powerPercent = curPowerLevel/maxPowerLevel
 	var needleRotation = max(0, min(180, 180 * powerPercent))
 	$Tween.interpolate_property($PowerLine, "rotation_degrees",
 		$PowerLine.rotation_degrees, needleRotation, 1,
@@ -28,3 +29,6 @@ func calculatePowerLevel():
 	else:
 		$PowerLine.default_color = Color(1, 0, 0, 1)
 
+func damage():
+	if powerPercent < acceptablePowerPercent:
+		get_tree().call_group("gameOver", "onGameOver")

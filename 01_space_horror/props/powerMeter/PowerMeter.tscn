@@ -6,7 +6,9 @@
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.241071, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.25, 0 ), 0.0, 0.0, 0, 0 ]
 
-[node name="PowerMeter" type="Node2D"]
+[node name="PowerMeter" type="Node2D" groups=[
+"damagable",
+]]
 script = ExtResource( 2 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -28,7 +30,7 @@ width = 1.0
 default_color = Color( 1, 0.976471, 0.4, 1 )
 
 [node name="CheckPowerLevelTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.5
 autostart = true
 
 [node name="Tween" type="Tween" parent="."]

@@ -8,6 +8,7 @@ export var following:bool = false
 export(float) var shakeIntensity = 30
 export(float) var shakeDurationSeconds = 1.5
 var remainingShakeDurationSeconds = 0
+var originalPosition
 
 var fixedX:bool = false
 var fixedY:bool = false
@@ -30,8 +31,10 @@ func _physics_process(_delta):
 		if fixedY: position.y = lastY
 		
 	if remainingShakeDurationSeconds > 0:
-		position += Vector2(rand_range(-shakeIntensity, shakeIntensity), rand_range(-shakeIntensity, shakeIntensity))
+		position = originalPosition + Vector2(rand_range(-shakeIntensity, shakeIntensity), rand_range(-shakeIntensity, shakeIntensity))
 		remainingShakeDurationSeconds -= _delta
+		if remainingShakeDurationSeconds <= 0:
+			position = originalPosition
 
 func on_fixed_mode_entered(fixedArea:Position2D, fx:bool, fy:bool, shouldTransition:bool):
 	if !fixedX and !fixedY: # if we were in a Center area previously, basically
@@ -50,5 +53,6 @@ func on_fixed_mode_exited(fixedArea:Position2D, shouldTransition:bool):
 		following = true
 
 
-func _on_StarbeastRoom_approachFinished():
+func damage():
 	remainingShakeDurationSeconds = shakeDurationSeconds
+	originalPosition = position

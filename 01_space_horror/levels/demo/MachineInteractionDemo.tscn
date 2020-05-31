@@ -32,6 +32,7 @@ following = true
 
 [node name="StarbeastRoom" parent="Rooms" instance=ExtResource( 9 )]
 position = Vector2( 2, 90.9492 )
+approachMinutes = 1.0
 
 [node name="hallway" parent="Rooms" instance=ExtResource( 5 )]
 position = Vector2( 259.922, 82.782 )

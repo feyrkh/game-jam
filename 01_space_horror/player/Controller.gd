@@ -14,7 +14,7 @@ onready var triggerZoneArea:Area2D = $InteractTriggerArea
 
 func _ready():
 	enableInput()
-	
+
 func disableInput():
 	processInput = false
 	
