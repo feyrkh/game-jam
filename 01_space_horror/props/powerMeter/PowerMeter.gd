@@ -17,14 +17,14 @@ func calculatePowerLevel():
 	for supplier in powerSuppliers:
 		maxPowerLevel += supplier.getMaxPowerLevel()
 		curPowerLevel += supplier.getPowerLevel()
-	powerPercent = curPowerLevel/maxPowerLevel
-	var needleRotation = max(0, min(180, 180 * powerPercent))
+	powerPercent = curPowerLevel/maxPowerLevel * 100
+	var needleRotation = max(0, min(180, 180 * powerPercent / 100.0))
 	$Tween.interpolate_property($PowerLine, "rotation_degrees",
 		$PowerLine.rotation_degrees, needleRotation, 1,
 		Tween.TRANS_LINEAR)
 	$Tween.start()
 	yield($Tween, "tween_completed")
-	if powerPercent*100 >= acceptablePowerPercent:
+	if powerPercent >= acceptablePowerPercent:
 		$PowerLine.default_color = Color(0, 1, 0, 1)
 	else:
 		$PowerLine.default_color = Color(1, 0, 0, 1)

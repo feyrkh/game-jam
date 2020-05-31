@@ -27,6 +27,9 @@ func setPowerLevel(var amt):
 			powerLevel = 0
 			$AnimatedSprite.play("noPower")
 
+func canInteract():
+	return !shaking and powerLevel < getMaxPowerLevel()
+
 func interact():
 	if shaking: return
 	.interact()

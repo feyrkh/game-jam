@@ -30,7 +30,7 @@ func get_input():
 		var overlaps:Array = triggerZoneArea.get_overlapping_areas()
 		if !overlaps.empty():
 			var interactable:Interactable = overlaps[0].get_parent()
-			if interactable != null:
+			if interactable != null and (!interactable.has_method("canInteract") or interactable.canInteract()):
 				interactable.interact()
 	
 	if leftRightInput:

@@ -25,19 +25,22 @@ func _process(delta):
 	
 func _unhandled_key_input(event):
 	if event.is_action_pressed("ui_cancel"):
-		self.queue_free()
-		emit_signal("controlPanelClosed", powerLevel)
+		closeControlPanel()
 		get_tree().set_input_as_handled()
 
 func damage():
+	closeControlPanel()
+	
+func closeControlPanel():
 	self.queue_free()
 	emit_signal("controlPanelClosed", powerLevel)
-	
 
 func setPowerLevel(newPowerLevel):
 	powerLevel = newPowerLevel
 	var powerLabel:Label = find_node("PowerLabel")
 	powerLabel.text = "Power level: "+str(newPowerLevel)
+	if powerLevel >= 3:
+		closeControlPanel()
 
 func powerUp():
 	setPowerLevel(min(3, powerLevel+1))

@@ -21,6 +21,7 @@ func startAttack():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "approach":
 		emit_signal("approachFinished")
+		approachMinutes *= 0.9
 		startAttack()
 	if anim_name == "attack":
 		emit_signal("attackFinished")
