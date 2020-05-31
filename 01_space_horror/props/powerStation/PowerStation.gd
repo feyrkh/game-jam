@@ -4,11 +4,11 @@ export(int) var powerLevel = 0 setget setPowerLevel
 const ControlPanelScene = preload("res://props/powerStation/PowerStationControlPanel.tscn")
 var shaking = false
 onready var originalPosition = position
+var minigameConfig = {}
 
 func _process(_delta):
 	if shaking:
 		position = originalPosition + Vector2(randi()%3-1, randi()%3-1)
-		
 
 func getPowerLevel():
 	return powerLevel
@@ -36,6 +36,7 @@ func interact():
 	disableUserInput()
 	var popup:PowerStationControlPanel = ControlPanelScene.instance()
 	popup.setPowerLevel(powerLevel)
+	minigameConfig = popup.setMinigameConfig(minigameConfig)
 	popup.connect("controlPanelClosed", self, "restoreUserInput")
 	get_tree().get_nodes_in_group("ui_layer")[0].add_child(popup)
 		

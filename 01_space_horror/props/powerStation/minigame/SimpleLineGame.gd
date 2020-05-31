@@ -25,19 +25,26 @@ export(NodePath) var markerPath
 var dangerLine:Line2D
 var successLine:Line2D
 var marker:Line2D
+
+func _ready():
+	moveMarkerTo(rand_range(dangerLine.points[0].x, dangerLine.points[-1].x))
+	
+func setMinigameConfig(config):
+	if !config.has("markerMoveStyle"):
+		match randi()%4:
+			0,1: markerMoveStyle = MarkerMoveStyle.Bounce
+			2: markerMoveStyle = MarkerMoveStyle.WrapLeft
+			3: markerMoveStyle = MarkerMoveStyle.WrapRight
+		config["markerMoveStyle"] = markerMoveStyle
+	markerMoveStyle = config["markerMoveStyle"]
 	
 func setupGame():
 	.setupGame()
+	
 	dangerLine = get_node(dangerLinePath)
 	successLine = get_node(successLinePath)
 	marker = get_node(markerPath)
-	match randi()%4:
-		0,1: markerMoveStyle = MarkerMoveStyle.Bounce
-		2: markerMoveStyle = MarkerMoveStyle.WrapLeft
-		3: markerMoveStyle = MarkerMoveStyle.WrapRight
 		
-	moveMarkerTo(rand_range(dangerLine.points[0].x, dangerLine.points[-1].x))
-
 	var successLineWidth = successWidth - successDifficultyPenalty*difficultyLevel
 	var maxSuccessLinePosition = (successLineMaxPercentOffsetFromCenter/100.0 * (dangerLine.points[-1].x - successLineWidth))
 	var successLineOffset = rand_range(-maxSuccessLinePosition, maxSuccessLinePosition)
@@ -100,6 +107,9 @@ func processWrapRightMove(delta):
 	moveMarkerTo(newMarkerX)
 	if newMarkerX == dangerLine.points[-1].x: moveMarkerTo(dangerLine.points[0].x)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func getPowerText(powerLevel):
+	match powerLevel:
+		0: return "FUEL PUMP NOT PRIMED"
+		1: return "FUEL PUMP OPERATING AT MINIMUM CAPACITY"
+		2: return "FUEL PUMP OPERATING AT REDUCED CAPACITY"
+		3: return "FUEL PUMP OPERATING AT FULL CAPACITY"
