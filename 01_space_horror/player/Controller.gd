@@ -17,6 +17,7 @@ onready var triggerZoneArea:Area2D = $InteractTriggerArea
 func _ready():
 	fadeOutRect.color = Color(0,0,0,0)
 	enableInput()
+	$starfield.visible = true
 
 func disableInput():
 	processInput = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player/player-down.png" type="Texture" id=1]
 [ext_resource path="res://player/player-right.png" type="Texture" id=2]
@@ -9,12 +9,18 @@
 [ext_resource path="res://player/player-right2.png" type="Texture" id=7]
 [ext_resource path="res://player/light_shadow_light_blob.png" type="Texture" id=8]
 [ext_resource path="res://player/MapDetector.gd" type="Script" id=9]
+[ext_resource path="res://levels/starbeast/starfield.jpeg" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk_down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
@@ -25,11 +31,6 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk_down",
 "speed": 5.0
 } ]
 
@@ -186,11 +187,19 @@ layer = 128
 
 [node name="FadeOutRect" type="ColorRect" parent="CanvasLayer"]
 light_mask = 0
-margin_left = -2500.0
-margin_top = -2500.0
-margin_right = 2500.0
-margin_bottom = 2500.0
+margin_right = 5000.0
+margin_bottom = 5000.0
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
+}
+
+[node name="starfield" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.570648, 15.7298 )
+z_index = -4096
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
 }
