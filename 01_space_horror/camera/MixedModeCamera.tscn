@@ -4,6 +4,7 @@
 
 [node name="MixedModeCamera" type="Camera2D" groups=[
 "damagable",
+"gameOver",
 ]]
 z_index = 4000
 z_as_relative = false

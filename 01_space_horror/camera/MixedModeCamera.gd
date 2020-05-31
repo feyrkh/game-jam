@@ -56,3 +56,7 @@ func on_fixed_mode_exited(fixedArea:Position2D, shouldTransition:bool):
 func damage():
 	remainingShakeDurationSeconds = shakeDurationSeconds
 	originalPosition = position
+
+func gameOver():
+	remainingShakeDurationSeconds = 10
+	originalPosition = position

@@ -13,6 +13,7 @@ onready var animatedSprite:AnimatedSprite = $AnimatedSprite
 onready var triggerZoneArea:Area2D = $InteractTriggerArea
 
 func _ready():
+	$FadeOutRect.color = Color(0,0,0,0)
 	enableInput()
 
 func disableInput():
@@ -80,3 +81,9 @@ func teleport(newGlobalPosition:Vector2):
 	$ScreenFadeAnimationPlayer.play("fadein")
 	yield($ScreenFadeAnimationPlayer, "animation_finished")
 	enableInput()
+
+func gameOver():
+	disableInput()
+	$ScreenFadeAnimationPlayer.play("gameOver")
+	yield($ScreenFadeAnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://levels/gameOver/GameOver.tscn")

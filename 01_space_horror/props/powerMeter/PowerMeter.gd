@@ -30,5 +30,6 @@ func calculatePowerLevel():
 		$PowerLine.default_color = Color(1, 0, 0, 1)
 
 func damage():
+	print_debug("Are we dead? ", powerPercent, " < ", acceptablePowerPercent)
 	if powerPercent < acceptablePowerPercent:
-		get_tree().call_group("gameOver", "onGameOver")
+		get_tree().call_group("gameOver", "gameOver")
