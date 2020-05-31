@@ -1,17 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://levels/demo/PowerStation.gd" type="Script" id=1]
+[ext_resource path="res://props/powerStation/HighlightWhenInteractable.gd" type="Script" id=1]
 [ext_resource path="res://props/powerStation/PowerStation.gd" type="Script" id=2]
 [ext_resource path="res://levels/tileterminalon.png" type="Texture" id=3]
 [ext_resource path="res://levels/tileterminaloff.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "medPower",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "damaged",
@@ -20,6 +15,11 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "lowPower",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "medPower",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -45,6 +45,7 @@ extents = Vector2( 7.50866, 6.55534 )
 "shieldConsole",
 ]]
 position = Vector2( 76.6716, 106.162 )
+z_index = 5
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -56,6 +57,7 @@ __meta__ = {
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
