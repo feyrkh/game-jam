@@ -9,11 +9,13 @@ var leftRightInput = true
 # if you're in a room where you can only move left and right, disable this
 var upDownInput = true
 
+onready var fadeOutRect = $CanvasLayer/FadeOutRect
+
 onready var animatedSprite:AnimatedSprite = $AnimatedSprite
 onready var triggerZoneArea:Area2D = $InteractTriggerArea
 
 func _ready():
-	$FadeOutRect.color = Color(0,0,0,0)
+	fadeOutRect.color = Color(0,0,0,0)
 	enableInput()
 
 func disableInput():
@@ -71,7 +73,7 @@ func teleport(newGlobalPosition:Vector2):
 		return
 	disableInput()
 	get_tree().paused = true
-	$FadeOutRect.set_global_position(global_position - $FadeOutRect.rect_size/2)
+	fadeOutRect.set_global_position(global_position - fadeOutRect.rect_size/2)
 	$ScreenFadeAnimationPlayer.play("fadeout")
 	yield($ScreenFadeAnimationPlayer, "animation_finished")
 	global_position = newGlobalPosition

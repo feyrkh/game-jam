@@ -22,14 +22,14 @@ animations = [ {
 "name": "walk_up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk_down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk_down",
 "speed": 5.0
 } ]
 
@@ -42,7 +42,7 @@ radius = 0.01
 [sub_resource type="Animation" id=4]
 resource_name = "fadein"
 tracks/0/type = "value"
-tracks/0/path = NodePath("FadeOutRect:visible")
+tracks/0/path = NodePath("CanvasLayer/FadeOutRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("FadeOutRect:color")
+tracks/1/path = NodePath("CanvasLayer/FadeOutRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -70,7 +70,7 @@ tracks/1/keys = {
 resource_name = "fadeout"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("FadeOutRect:visible")
+tracks/0/path = NodePath("CanvasLayer/FadeOutRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -82,7 +82,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("FadeOutRect:color")
+tracks/1/path = NodePath("CanvasLayer/FadeOutRect:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -98,7 +98,7 @@ tracks/1/keys = {
 resource_name = "gameOver"
 length = 5.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("FadeOutRect:color")
+tracks/0/path = NodePath("CanvasLayer/FadeOutRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -181,7 +181,10 @@ anims/fadein = SubResource( 4 )
 anims/fadeout = SubResource( 5 )
 anims/gameOver = SubResource( 6 )
 
-[node name="FadeOutRect" type="ColorRect" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="FadeOutRect" type="ColorRect" parent="CanvasLayer"]
 light_mask = 0
 margin_left = -2500.0
 margin_top = -2500.0
