@@ -53,7 +53,7 @@ func get_input():
 	elif velocity.x > 0:
 		animatedSprite.flip_h = false
 		
-	var nextAnimation = "idle"
+	var nextAnimation = "idle_right"
 	if velocity.y < 0:
 		nextAnimation = "walk_up"
 	elif velocity.y > 0: 

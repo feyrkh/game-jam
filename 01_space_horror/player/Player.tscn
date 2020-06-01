@@ -13,11 +13,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walk_down",
@@ -31,6 +26,21 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "walk_right",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "idle_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle_right",
 "speed": 5.0
 } ]
 
@@ -122,7 +132,7 @@ speed = 50
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.05, 0.05 )
 frames = SubResource( 1 )
-animation = "walk_down"
+animation = "idle_right"
 __meta__ = {
 "_edit_lock_": true
 }
