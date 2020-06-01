@@ -134,6 +134,7 @@ __meta__ = {
 }
 
 [node name="Light2D" type="Light2D" parent="."]
+visible = false
 texture = ExtResource( 8 )
 offset = Vector2( 48, -75 )
 texture_scale = 3.0
@@ -187,6 +188,7 @@ anims/gameOver = SubResource( 6 )
 layer = 128
 
 [node name="FadeOutRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 light_mask = 0
 margin_right = 5000.0
 margin_bottom = 5000.0
