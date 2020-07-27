@@ -4,9 +4,9 @@
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/strobe/StrobeLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://levels/main/Main.gd" type="Script" id=5]
+[ext_resource path="res://levels/demo/GenerateMapDemo.gd" type="Script" id=5]
 
-[node name="Main" type="Node2D"]
+[node name="GenerateMapDemo" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 4 )]
@@ -14,7 +14,7 @@ visible = false
 position = Vector2( 488.539, 76.5638 )
 current = true
 zoom = Vector2( 0.25, 0.25 )
-targetPath = NodePath("../Player")
+targetPath = NodePath("../../GenerateMapDemo/Player")
 following = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
@@ -30,12 +30,12 @@ color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
 visible = false
 position = Vector2( 246.411, 194.434 )
 
-[node name="map" type="Node2D" parent="."]
-script = ExtResource( 1 )
-mapSize = 4
-numExtraRooms = 8
-
 [node name="UI Layer" type="CanvasLayer" parent="." groups=[
 "ui_layer",
 ]]
-[connection signal="mapGenerationComplete" from="map" to="." method="_on_map_mapGenerationComplete"]
+
+[node name="GeneratedMap" type="Node2D" parent="."]
+script = ExtResource( 1 )
+mapSize = 3
+numExtraRooms = 4
+[connection signal="mapGenerationComplete" from="GeneratedMap" to="." method="_on_GeneratedMap_mapGenerationComplete"]

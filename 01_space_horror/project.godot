@@ -33,13 +33,25 @@ _global_script_classes=[ {
 "class": "PowerStationControlPanel",
 "language": "GDScript",
 "path": "res://props/powerStation/PowerStationControlPanel.gd"
+}, {
+"base": "Node2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://code/Room.gd"
+}, {
+"base": "Area2D",
+"class": "Teleporter",
+"language": "GDScript",
+"path": "res://props/teleporter/Teleporter.gd"
 } ]
 _global_script_class_icons={
 "BaseMinigame": "",
 "DrawSineWave": "",
 "Interactable": "",
 "MixedModeCamera": "",
-"PowerStationControlPanel": ""
+"PowerStationControlPanel": "",
+"Room": "",
+"Teleporter": ""
 }
 
 [application]

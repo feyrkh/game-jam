@@ -1,11 +1,15 @@
 extends Area2D
+class_name Teleporter
 
 var _targetPosition2D
 
+func setExit(exitPoint:Position2D):
+	_targetPosition2D = exitPoint
+
 func _ready():
 	_targetPosition2D = get_node("Position2D")
-	if _targetPosition2D == null:
-		push_error("Teleporter must have Position2D child attached")
+	#if _targetPosition2D == null:
+	#	push_error("Teleporter must have Position2D child attached")
 
 func _on_Teleporter_body_entered(body:KinematicBody2D):
 	# find teleportable body in scene tree if possible

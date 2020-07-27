@@ -41,7 +41,8 @@ func on_fixed_mode_entered(fixedArea:Position2D, fx:bool, fy:bool, shouldTransit
 		shouldTransition = true
 	lastEnteredRegion = fixedArea
 	following = false
-	position = fixedArea.position
+	position = fixedArea.global_position
+	print("Camera focusing on ", position)
 	originalPosition = position
 	self.fixedX = fx
 	self.fixedY = fy

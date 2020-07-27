@@ -7,7 +7,6 @@
 [node name="SplashScreen" type="Node2D"]
 script = ExtResource( 1 )
 fadeInSeconds = 0.5
-fadeOutSeconds = 0.5
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 967.0

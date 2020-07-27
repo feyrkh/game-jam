@@ -13,11 +13,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk_down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk_up",
@@ -31,6 +26,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "idle_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk_down",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -198,7 +198,6 @@ anims/gameOver = SubResource( 6 )
 layer = 128
 
 [node name="FadeOutRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 light_mask = 0
 margin_right = 5000.0
 margin_bottom = 5000.0

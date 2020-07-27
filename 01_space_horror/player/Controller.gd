@@ -15,7 +15,9 @@ onready var animatedSprite:AnimatedSprite = $AnimatedSprite
 onready var triggerZoneArea:Area2D = $InteractTriggerArea
 
 func _ready():
-	fadeOutRect.color = Color(0,0,0,0)
+	fadeOutRect.color = Color(0,0,0,1.0)
+	yield(get_tree().create_timer(0.5), "timeout")
+	$ScreenFadeAnimationPlayer.play("fadein")
 	enableInput()
 	$starfield.visible = true
 
