@@ -7,7 +7,7 @@
 [ext_resource path="res://code/Room.gd" type="Script" id=5]
 [ext_resource path="res://levels/tilenormal.png" type="Texture" id=6]
 [ext_resource path="res://levels/tilebarrier.png" type="Texture" id=7]
-[ext_resource path="res://props/randomBlocker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://props/blocker/randomBlocker.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 40 )
