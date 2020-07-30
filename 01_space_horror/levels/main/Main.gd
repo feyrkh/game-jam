@@ -18,4 +18,4 @@ func _ready():
 
 func _on_map_mapGenerationComplete(startRoom):
 	$CanvasModulate.visible = false
-	$Player.position = startRoom.position + Vector2(120, 80)
+	$Player.position = Vector2(get_tree().root.find_node("GlobalSpawnPoint", true, false).global_position)

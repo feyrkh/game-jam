@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/491442__music15tree__alien-voice.ogg-a24a1bd44d8a89206dd41a07a44efc2c.oggstr"
+
+[deps]
+
+source_file="res://levels/starbeast/491442__music15tree__alien-voice.ogg"
+dest_files=[ "res://.import/491442__music15tree__alien-voice.ogg-a24a1bd44d8a89206dd41a07a44efc2c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

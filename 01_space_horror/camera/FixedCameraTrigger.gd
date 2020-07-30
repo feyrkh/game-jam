@@ -3,6 +3,8 @@ extends Area2D
 enum FocusDirection {Center, Top, Left, Right, Bottom}
 
 export(FocusDirection) var cameraFocus = FocusDirection.Center
+export(bool) var overrideFixedX
+export(bool) var overrideFixedY
 
 onready var camera:Camera2D
 onready var shape:RectangleShape2D = $CollisionShape2D.shape
@@ -26,26 +28,26 @@ func _ready():
 
 func _on_FixedCameraTrigger_body_entered(_body):
 	print_debug("entered FixedCameraTrigger")
-	var fixedX
-	var fixedY
+	var fixedX = overrideFixedX
+	var fixedY = overrideFixedY
 	if camera == null:
 		return
 		
 	if cameraFocus == FocusDirection.Center:
-		fixedX = false
-		fixedY = false
+		if fixedX != true: fixedX = false
+		if fixedY != true: fixedY = false
 		if _body.has_method("enableLeftRight"): _body.enableLeftRight()
 		if _body.has_method("enableUpDown"): _body.enableUpDown()
 	elif cameraFocus == FocusDirection.Left or cameraFocus == FocusDirection.Right:
 		if _body.has_method("enableLeftRight"): _body.enableLeftRight()
 		if _body.has_method("disableUpDown"): _body.disableUpDown()
-		fixedX = false
-		fixedY = true
+		if fixedX != true: fixedX = false
+		if fixedY != true: fixedY = true
 	elif cameraFocus == FocusDirection.Up or cameraFocus == FocusDirection.Down:
 		if _body.has_method("disableLeftRight"): _body.disableLeftRight()
 		if _body.has_method("enableUpDown"): _body.enableUpDown()
-		fixedX = true
-		fixedY = false
+		if fixedX != true: fixedX = true
+		if fixedY != true: fixedY = false
 		
 	if camera.has_method("on_fixed_mode_entered"):
 		camera.on_fixed_mode_entered($CameraFocus, fixedX, fixedY, cameraFocus == FocusDirection.Center)

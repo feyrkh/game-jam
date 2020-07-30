@@ -1,0 +1,412 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/main/rooms/RoomDamage.gd" type="Script" id=3]
+[ext_resource path="res://props/teleporter/Teleporter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://code/Room.gd" type="Script" id=5]
+[ext_resource path="res://levels/tilenormal.png" type="Texture" id=6]
+[ext_resource path="res://levels/tilebarrier.png" type="Texture" id=7]
+[ext_resource path="res://props/randomBlocker.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 40 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 8.69741 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.35389, 30.8921 )
+
+[node name="room" type="Node2D"]
+position = Vector2( -24, -96 )
+script = ExtResource( 5 )
+LeftExitTeleporterPath = NodePath("LeftExitTeleporter")
+RightExitTeleporterPath = NodePath("RightExitTeleporter")
+UpExitTeleporterPath = NodePath("UpExitTeleporter")
+DownExitTeleporterPath = NodePath("DownExitTeleporter2")
+LeftEntrancePath = NodePath("LeftExitTeleporter/Position2D")
+RightEntrancePath = NodePath("RightExitTeleporter/Position2D")
+UpEntrancePath = NodePath("UpExitTeleporter/Position2D")
+DownEntrancePath = NodePath("DownExitTeleporter2/Position2D")
+
+[node name="LeftExitTeleporter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1.10474, 90.1404 )
+
+[node name="Position2D" type="Position2D" parent="LeftExitTeleporter"]
+position = Vector2( 18.7861, -6.64174 )
+
+[node name="RightExitTeleporter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 239.439, 87.395 )
+
+[node name="Position2D" type="Position2D" parent="RightExitTeleporter"]
+position = Vector2( -21.2192, -6.744 )
+
+[node name="UpExitTeleporter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 120.281, 0.755104 )
+rotation = 1.5708
+
+[node name="Position2D" type="Position2D" parent="UpExitTeleporter"]
+position = Vector2( 17.5349, 5.50586 )
+
+[node name="DownExitTeleporter2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 118.054, 159.335 )
+rotation = 1.5708
+
+[node name="Position2D" type="Position2D" parent="DownExitTeleporter2"]
+position = Vector2( -24.7828, 5.06042 )
+
+[node name="background" type="TileMap" parent="." groups=[
+"damagable",
+]]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 6, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 9, 0, 131083, 9, 0, 131084, 9, 0, 131085, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 9, 0, 196615, 9, 0, 196616, 9, 0, 196617, 9, 0, 196618, 9, 0, 196619, 9, 0, 196620, 9, 0, 196621, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 262150, 9, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 9, 0, 262155, 9, 0, 262156, 9, 0, 262157, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 9, 0, 327685, 9, 0, 327686, 9, 0, 327687, 9, 0, 327688, 9, 0, 327689, 9, 0, 327690, 9, 0, 327691, 9, 0, 327692, 9, 0, 327693, 9, 0, 393218, 9, 0, 393219, 9, 0, 393220, 9, 0, 393221, 9, 0, 393222, 9, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 9, 0, 393228, 9, 0, 393229, 9, 0, 458754, 9, 0, 458755, 9, 0, 458756, 9, 0, 458757, 9, 0, 458758, 9, 0, 458759, 9, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 9, 0, 458765, 9, 0, 524290, 9, 0, 524291, 9, 0, 524292, 9, 0, 524293, 9, 0, 524294, 9, 0, 524295, 9, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 9, 0, 524300, 9, 0, 524301, 9, 0 )
+script = ExtResource( 3 )
+
+[node name="barriers" type="Node2D" parent="."]
+
+[node name="BlockerTile" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 56 )
+
+[node name="BlockerTile2" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 72 )
+
+[node name="BlockerTile3" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 104 )
+
+[node name="BlockerTile4" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 72, 104 )
+
+[node name="BlockerTile5" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 72, 136 )
+
+[node name="BlockerTile6" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 88, 136 )
+
+[node name="BlockerTile8" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 72, 72 )
+
+[node name="BlockerTile9" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 72, 88 )
+
+[node name="BlockerTile10" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 104, 88 )
+
+[node name="BlockerTile11" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 88, 88 )
+
+[node name="BlockerTile12" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 72, 56 )
+
+[node name="BlockerTile13" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 88, 24 )
+
+[node name="BlockerTile14" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 104, 56 )
+
+[node name="BlockerTile15" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 120, 56 )
+
+[node name="BlockerTile16" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 136, 72 )
+
+[node name="BlockerTile17" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 216, 56 )
+
+[node name="BlockerTile18" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 120, 120 )
+
+[node name="BlockerTile19" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 136, 56 )
+
+[node name="BlockerTile20" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 152, 72 )
+
+[node name="BlockerTile21" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 168, 72 )
+
+[node name="BlockerTile22" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 184, 56 )
+
+[node name="BlockerTile23" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 200, 24 )
+
+[node name="BlockerTile24" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 216, 24 )
+
+[node name="BlockerTile25" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 216, 40 )
+
+[node name="BlockerTile27" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 200, 88 )
+
+[node name="BlockerTile28" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 184, 40 )
+
+[node name="BlockerTile29" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 200, 120 )
+
+[node name="BlockerTile30" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 216, 120 )
+
+[node name="BlockerTile31" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 168, 120 )
+
+[node name="BlockerTile32" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 168, 136 )
+
+[node name="BlockerTile33" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 136, 88 )
+
+[node name="BlockerTile34" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 200, 136 )
+
+[node name="BlockerTile35" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 216, 136 )
+
+[node name="BlockerTile36" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 88 )
+
+[node name="BlockerTile37" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 136 )
+
+[node name="BlockerTile38" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 120 )
+
+[node name="BlockerTile39" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 40, 40 )
+
+[node name="BlockerTile40" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 152, 40 )
+
+[node name="BlockerTile41" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 168, 104 )
+
+[node name="BlockerTile42" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 152, 120 )
+
+[node name="BlockerTile43" parent="barriers" instance=ExtResource( 8 )]
+position = Vector2( 72, 24 )
+
+[node name="FixedCameraArea" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 120, 80 )
+
+[node name="CameraFocus" parent="FixedCameraArea" index="1"]
+position = Vector2( -120, -80 )
+
+[node name="foreground" type="Node2D" parent="."]
+z_index = 100
+
+[node name="LeftExit" type="Node2D" parent="foreground"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilenormal" type="Sprite" parent="foreground/LeftExit"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal2" type="Sprite" parent="foreground/LeftExit"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal3" type="Sprite" parent="foreground/LeftExit"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 6 )
+
+[node name="RightExit" type="Node2D" parent="foreground"]
+position = Vector2( 224, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilenormal" type="Sprite" parent="foreground/RightExit"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal2" type="Sprite" parent="foreground/RightExit"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal3" type="Sprite" parent="foreground/RightExit"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 6 )
+
+[node name="UpExit" type="Node2D" parent="foreground"]
+position = Vector2( 208, 0 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilenormal" type="Sprite" parent="foreground/UpExit"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal2" type="Sprite" parent="foreground/UpExit"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal3" type="Sprite" parent="foreground/UpExit"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 6 )
+
+[node name="DownExit" type="Node2D" parent="foreground"]
+position = Vector2( 208, 144 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilenormal" type="Sprite" parent="foreground/DownExit"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal2" type="Sprite" parent="foreground/DownExit"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 6 )
+
+[node name="tilenormal3" type="Sprite" parent="foreground/DownExit"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 6 )
+
+[node name="LeftExitBlocker" type="Node2D" parent="foreground"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilebarrier2" type="Sprite" parent="foreground/LeftExitBlocker"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier3" type="Sprite" parent="foreground/LeftExitBlocker"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier4" type="Sprite" parent="foreground/LeftExitBlocker"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="foreground/LeftExitBlocker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/LeftExitBlocker/StaticBody2D"]
+position = Vector2( 8, 88 )
+shape = SubResource( 1 )
+
+[node name="RightExitBlocker" type="Node2D" parent="foreground"]
+position = Vector2( 224, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilebarrier2" type="Sprite" parent="foreground/RightExitBlocker"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier3" type="Sprite" parent="foreground/RightExitBlocker"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier4" type="Sprite" parent="foreground/RightExitBlocker"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="foreground/RightExitBlocker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/RightExitBlocker/StaticBody2D"]
+position = Vector2( 8, 88 )
+shape = SubResource( 1 )
+
+[node name="UpExitBlocker" type="Node2D" parent="foreground"]
+position = Vector2( 208, 0 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilebarrier2" type="Sprite" parent="foreground/UpExitBlocker"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier3" type="Sprite" parent="foreground/UpExitBlocker"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier4" type="Sprite" parent="foreground/UpExitBlocker"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="foreground/UpExitBlocker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/UpExitBlocker/StaticBody2D"]
+position = Vector2( 8, 88 )
+shape = SubResource( 1 )
+
+[node name="DownExitBlocker" type="Node2D" parent="foreground"]
+position = Vector2( 208, 144 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tilebarrier2" type="Sprite" parent="foreground/DownExitBlocker"]
+position = Vector2( 8, 104 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier3" type="Sprite" parent="foreground/DownExitBlocker"]
+position = Vector2( 8, 88 )
+texture = ExtResource( 7 )
+
+[node name="tilebarrier4" type="Sprite" parent="foreground/DownExitBlocker"]
+position = Vector2( 8, 72 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="foreground/DownExitBlocker"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/DownExitBlocker/StaticBody2D"]
+position = Vector2( 8.00002, 88 )
+shape = SubResource( 1 )
+
+[node name="collision" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="collision"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 47.9504, 7.30551 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 192.09, 7.27882 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 48.1685, 152.656 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 191.676, 152.706 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 7.63631, 33.064 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 7.68051, 141.615 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 232.386, 34.1677 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="collision/StaticBody2D"]
+position = Vector2( 232.337, 142.763 )
+shape = SubResource( 3 )
+
+[node name="GlobalSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 120, 40 )
+
+[editable path="FixedCameraArea"]

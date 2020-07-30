@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=2]
-[ext_resource path="res://levels/main/rooms/RoomDamage.gd" type="Script" id=3]
+[ext_resource path="res://props/randomBlocker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://props/teleporter/Teleporter.tscn" type="PackedScene" id=4]
-[ext_resource path="res://code/Room.gd" type="Script" id=5]
+[ext_resource path="res://levels/main/rooms/RoomDamage.gd" type="Script" id=5]
 [ext_resource path="res://levels/tilenormal.png" type="Texture" id=6]
 [ext_resource path="res://levels/tilebarrier.png" type="Texture" id=7]
-[ext_resource path="res://props/randomBlocker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://code/Room.gd" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 40 )
@@ -19,7 +19,8 @@ extents = Vector2( 48, 8.69741 )
 extents = Vector2( 8.35389, 30.8921 )
 
 [node name="room" type="Node2D"]
-script = ExtResource( 5 )
+position = Vector2( -32, -104 )
+script = ExtResource( 8 )
 LeftExitTeleporterPath = NodePath("LeftExitTeleporter")
 RightExitTeleporterPath = NodePath("RightExitTeleporter")
 UpExitTeleporterPath = NodePath("UpExitTeleporter")
@@ -62,134 +63,134 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 6, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131077, 9, 0, 131078, 9, 0, 131079, 9, 0, 131080, 9, 0, 131081, 9, 0, 131082, 9, 0, 131083, 9, 0, 131084, 9, 0, 131085, 9, 0, 196610, 9, 0, 196611, 9, 0, 196612, 9, 0, 196613, 9, 0, 196614, 9, 0, 196615, 9, 0, 196616, 9, 0, 196617, 9, 0, 196618, 9, 0, 196619, 9, 0, 196620, 9, 0, 196621, 9, 0, 262146, 9, 0, 262147, 9, 0, 262148, 9, 0, 262149, 9, 0, 262150, 9, 0, 262151, 9, 0, 262152, 9, 0, 262153, 9, 0, 262154, 9, 0, 262155, 9, 0, 262156, 9, 0, 262157, 9, 0, 327682, 9, 0, 327683, 9, 0, 327684, 9, 0, 327685, 9, 0, 327686, 9, 0, 327687, 9, 0, 327688, 9, 0, 327689, 9, 0, 327690, 9, 0, 327691, 9, 0, 327692, 9, 0, 327693, 9, 0, 393218, 9, 0, 393219, 9, 0, 393220, 9, 0, 393221, 9, 0, 393222, 9, 0, 393223, 9, 0, 393224, 9, 0, 393225, 9, 0, 393226, 9, 0, 393227, 9, 0, 393228, 9, 0, 393229, 9, 0, 458754, 9, 0, 458755, 9, 0, 458756, 9, 0, 458757, 9, 0, 458758, 9, 0, 458759, 9, 0, 458760, 9, 0, 458761, 9, 0, 458762, 9, 0, 458763, 9, 0, 458764, 9, 0, 458765, 9, 0, 524290, 9, 0, 524291, 9, 0, 524292, 9, 0, 524293, 9, 0, 524294, 9, 0, 524295, 9, 0, 524296, 9, 0, 524297, 9, 0, 524298, 9, 0, 524299, 9, 0, 524300, 9, 0, 524301, 9, 0 )
-script = ExtResource( 3 )
+script = ExtResource( 5 )
 
 [node name="barriers" type="Node2D" parent="."]
 
-[node name="BlockerTile" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 24, 56 )
 
-[node name="BlockerTile2" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile2" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 40, 72 )
 
-[node name="BlockerTile3" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile3" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 56, 88 )
 
-[node name="BlockerTile4" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile4" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 72, 104 )
 
-[node name="BlockerTile5" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile5" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 72, 136 )
 
-[node name="BlockerTile6" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile6" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 88, 136 )
 
-[node name="BlockerTile8" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile8" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 104, 120 )
 
-[node name="BlockerTile9" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile9" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 104, 104 )
 
-[node name="BlockerTile10" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile10" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 104, 88 )
 
-[node name="BlockerTile11" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile11" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 88, 72 )
 
-[node name="BlockerTile12" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile12" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 72, 56 )
 
-[node name="BlockerTile13" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile13" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 88, 24 )
 
-[node name="BlockerTile14" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile14" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 104, 40 )
 
-[node name="BlockerTile15" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile15" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 120, 56 )
 
-[node name="BlockerTile16" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile16" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 136, 72 )
 
-[node name="BlockerTile17" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile17" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 136, 104 )
 
-[node name="BlockerTile18" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile18" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 136, 120 )
 
-[node name="BlockerTile19" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile19" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 152, 136 )
 
-[node name="BlockerTile20" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile20" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 152, 72 )
 
-[node name="BlockerTile21" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile21" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 168, 72 )
 
-[node name="BlockerTile22" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile22" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 184, 56 )
 
-[node name="BlockerTile23" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile23" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 200, 24 )
 
-[node name="BlockerTile24" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile24" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 216, 24 )
 
-[node name="BlockerTile25" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile25" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 216, 40 )
 
-[node name="BlockerTile27" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile27" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 200, 88 )
 
-[node name="BlockerTile28" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile28" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 184, 120 )
 
-[node name="BlockerTile29" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile29" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 200, 120 )
 
-[node name="BlockerTile30" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile30" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 216, 120 )
 
-[node name="BlockerTile31" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile31" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 168, 120 )
 
-[node name="BlockerTile32" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile32" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 168, 136 )
 
-[node name="BlockerTile33" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile33" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 184, 136 )
 
-[node name="BlockerTile34" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile34" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 200, 136 )
 
-[node name="BlockerTile35" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile35" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 216, 136 )
 
-[node name="BlockerTile36" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile36" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 40, 120 )
 
-[node name="BlockerTile37" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile37" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 56, 136 )
 
-[node name="BlockerTile38" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile38" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 40, 136 )
 
-[node name="BlockerTile39" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile39" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 40, 40 )
 
-[node name="BlockerTile40" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile40" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 152, 40 )
 
-[node name="BlockerTile41" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile41" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 168, 104 )
 
-[node name="BlockerTile42" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile42" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 152, 120 )
 
-[node name="BlockerTile43" parent="barriers" instance=ExtResource( 8 )]
+[node name="BlockerTile43" parent="barriers" instance=ExtResource( 2 )]
 position = Vector2( 72, 24 )
 
-[node name="FixedCameraArea" parent="." instance=ExtResource( 2 )]
+[node name="FixedCameraArea" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 120, 80 )
 
@@ -404,5 +405,8 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="collision/StaticBody2D"]
 position = Vector2( 232.337, 142.763 )
 shape = SubResource( 3 )
+
+[node name="GlobalSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 120, 136 )
 
 [editable path="FixedCameraArea"]

@@ -8,12 +8,13 @@
 [node name="room" type="Node2D"]
 
 [node name="LeftExitTeleporter" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1.10474, 90.1404 )
+position = Vector2( -26.8417, -5.59093 )
 
 [node name="Position2D" type="Position2D" parent="LeftExitTeleporter"]
 position = Vector2( -29.5654, 0.295654 )
 
 [node name="foreground" type="TileMap" parent="."]
+position = Vector2( -27.9464, -95.7313 )
 z_index = 10
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
@@ -23,6 +24,7 @@ tile_data = PoolIntArray( 262144, 9, 0, 327680, 9, 0, 393216, 9, 0 )
 [node name="background" type="TileMap" parent="." groups=[
 "damagable",
 ]]
+position = Vector2( -27.9464, -95.7313 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -30,4 +32,4 @@ tile_data = PoolIntArray( 0, 6, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131
 script = ExtResource( 3 )
 
 [node name="FixedCameraArea" parent="." instance=ExtResource( 2 )]
-position = Vector2( 120, 80 )
+position = Vector2( 92.0536, -15.7313 )

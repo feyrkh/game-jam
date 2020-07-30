@@ -7,7 +7,7 @@ func setExit(exitPoint:Position2D):
 	_targetPosition2D = exitPoint
 
 func _ready():
-	_targetPosition2D = get_node("Position2D")
+	_targetPosition2D = find_node("Position2D", true, false)
 	#if _targetPosition2D == null:
 	#	push_error("Teleporter must have Position2D child attached")
 

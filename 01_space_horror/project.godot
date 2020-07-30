@@ -60,6 +60,10 @@ config/name="prototype_game"
 run/main_scene="res://levels/splashscreen/SplashScreen.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+BackgroundMusic="*res://props/audioplayer/BackgroundMusic.tscn"
+
 [display]
 
 window/size/width=960
