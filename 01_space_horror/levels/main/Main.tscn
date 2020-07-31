@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://code/LevelGenerator.gd" type="Script" id=1]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/strobe/StrobeLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/main/Main.gd" type="Script" id=5]
+[ext_resource path="res://levels/main/ActivationNote.tscn" type="PackedScene" id=6]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 5 )
@@ -38,4 +39,23 @@ numExtraRooms = 6
 [node name="UI Layer" type="CanvasLayer" parent="." groups=[
 "ui_layer",
 ]]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI Layer"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="UI Layer/MarginContainer"]
+margin_right = 960.0
+margin_bottom = 100.0
+
+[node name="ActivationNote" parent="UI Layer/MarginContainer/CenterContainer" instance=ExtResource( 6 )]
+margin_left = 450.0
+margin_top = 36.0
+margin_right = 510.0
+margin_bottom = 64.0
 [connection signal="mapGenerationComplete" from="map" to="." method="_on_map_mapGenerationComplete"]

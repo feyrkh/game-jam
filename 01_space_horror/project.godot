@@ -63,6 +63,7 @@ config/icon="res://icon.png"
 [autoload]
 
 BackgroundMusic="*res://props/audioplayer/BackgroundMusic.tscn"
+EventBus="*res://code/EventBus.gd"
 
 [display]
 

@@ -191,10 +191,16 @@ func instantiateMap(container:Node2D):
 
 func evenlyDistributeItems(container:Node, containerPath:NodePath, maxItemCount:int):
 	var totalItemsKept = 0
-	var itemsPerRoom = ceil(float(maxItemCount)/rooms.size())
+	var roomsWithItems = 0
 	
 	for room in rooms:
-		var itemHolder = room.roomInstance.get_node(containerPath)
+		var itemHolder = room.roomInstance.get_node_or_null(containerPath)
+		if itemHolder: roomsWithItems += 1
+	
+	var itemsPerRoom = ceil(float(maxItemCount)/roomsWithItems)
+	
+	for room in rooms:
+		var itemHolder = room.roomInstance.get_node_or_null(containerPath)
 		if !itemHolder: continue
 		var items:Array = itemHolder.get_children()
 		items.shuffle()

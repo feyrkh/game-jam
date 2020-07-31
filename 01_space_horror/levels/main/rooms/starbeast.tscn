@@ -147,7 +147,7 @@ __meta__ = {
 
 [node name="LeftHallCamera" parent="LeftHall" instance=ExtResource( 2 )]
 visible = false
-overrideFixedY = true
+disableUpDown = true
 
 [node name="LeftEntrance" type="Position2D" parent="LeftHall"]
 position = Vector2( -98, 28 )
@@ -164,7 +164,7 @@ texture = ExtResource( 10 )
 
 [node name="RightHallCamera" parent="RightHall" instance=ExtResource( 2 )]
 visible = false
-overrideFixedY = true
+disableUpDown = true
 
 [node name="RightEntrance" type="Position2D" parent="RightHall"]
 position = Vector2( 98, 28 )
@@ -182,7 +182,7 @@ tile_data = PoolIntArray( 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 
 [node name="MiddleRoomCamera" parent="." instance=ExtResource( 2 )]
 visible = false
 position = Vector2( 1, -62 )
-overrideFixedY = true
+disableUpDown = true
 
 [node name="LeftExitBlocker" type="Node2D" parent="."]
 position = Vector2( -118.502, -109.742 )

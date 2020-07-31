@@ -1,5 +1,7 @@
 extends Interactable
 
+onready var EventBus = $"/root/EventBus"
+
 export(int) var powerLevel = 0 setget setPowerLevel
 const ControlPanelScene = preload("res://props/powerStation/PowerStationControlPanel.tscn")
 var shaking = false
@@ -33,6 +35,7 @@ func canInteract():
 func interact():
 	if shaking: return
 	.interact()
+	EventBus.emit_signal("hideControlNote")
 	disableUserInput()
 	var popup:PowerStationControlPanel = ControlPanelScene.instance()
 	popup.setPowerLevel(powerLevel)
@@ -57,5 +60,11 @@ func damage():
 	setPowerLevel(powerLevel - randi()%3 - 1)
 	shaking = false
 	position = originalPosition
-	
-	
+
+
+func _on_ActivationArea_area_entered(area):
+	if canInteract(): EventBus.emit_signal("showControlNote", "Press E")
+
+
+func _on_ActivationArea_area_exited(area):
+	EventBus.emit_signal("hideControlNote")
