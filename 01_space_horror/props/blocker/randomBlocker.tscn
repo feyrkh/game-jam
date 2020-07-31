@@ -4,11 +4,12 @@
 [ext_resource path="res://levels/tilehole.png" type="Texture" id=2]
 [ext_resource path="res://props/blocker/randomBlocker.gd" type="Script" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.0625, 8 )
 
-[node name="BlockerTile" type="Node2D"]
+[node name="BlockerTile" type="Node2D" groups=[
+"randomBlocker",
+]]
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

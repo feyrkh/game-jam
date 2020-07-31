@@ -7,16 +7,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "damaged",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "lowPower",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "medPower",
@@ -31,6 +21,16 @@ animations = [ {
 "loop": true,
 "name": "hiPower",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "lowPower",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "damaged",
+"speed": 30.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -44,7 +44,7 @@ extents = Vector2( 7.50866, 6.55534 )
 "interactable",
 "shieldConsole",
 ]]
-position = Vector2( 76.6716, 106.162 )
+position = Vector2( 8, 8 )
 z_index = 5
 script = ExtResource( 2 )
 

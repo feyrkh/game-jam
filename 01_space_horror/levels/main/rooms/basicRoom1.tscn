@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://levels/tilenormal.png" type="Texture" id=6]
 [ext_resource path="res://levels/tilebarrier.png" type="Texture" id=7]
 [ext_resource path="res://props/blocker/randomBlocker.tscn" type="PackedScene" id=8]
+[ext_resource path="res://props/powerStation/PowerStation.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 40 )
@@ -408,5 +409,22 @@ shape = SubResource( 3 )
 
 [node name="GlobalSpawnPoint" type="Position2D" parent="."]
 position = Vector2( 120, 40 )
+
+[node name="shieldConsoles" type="Node2D" parent="."]
+
+[node name="PowerStation" parent="shieldConsoles" instance=ExtResource( 9 )]
+position = Vector2( 72, 24 )
+
+[node name="PowerStation2" parent="shieldConsoles" instance=ExtResource( 9 )]
+position = Vector2( 152, 40 )
+
+[node name="PowerStation3" parent="shieldConsoles" instance=ExtResource( 9 )]
+position = Vector2( 88, 88 )
+
+[node name="PowerStation4" parent="shieldConsoles" instance=ExtResource( 9 )]
+position = Vector2( 200, 40 )
+
+[node name="PowerStation5" parent="shieldConsoles" instance=ExtResource( 9 )]
+position = Vector2( 152, 120 )
 
 [editable path="FixedCameraArea"]

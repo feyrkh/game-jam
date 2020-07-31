@@ -57,9 +57,10 @@ class RoomSlot:
 
 var directions = [LEFT, RIGHT, UP, DOWN]
 export var mapSize = 6
+export var numExtraRooms = 5
+export var maxShieldConsoleCount = 3
 var map:Array # of arrays of RoomSlots
 var rooms:Array
-export var numExtraRooms = 5
 
 func _ready():
 	generateMap()
@@ -183,5 +184,23 @@ func instantiateMap(container:Node2D):
 							curRoom.UpExitBlocker.queue_free()
 							otherRoom.DownExitTeleporter.setExit(curRoom.UpEntrance)
 							otherRoom.DownExitBlocker.queue_free()
-						
+	
+	evenlyDistributeItems(container, @"shieldConsoles", maxShieldConsoleCount)
+	
 	emit_signal("mapGenerationComplete", startRoom.roomInstance)
+
+func evenlyDistributeItems(container:Node, containerPath:NodePath, maxItemCount:int):
+	var totalItemsKept = 0
+	var itemsPerRoom = ceil(float(maxItemCount)/rooms.size())
+	
+	for room in rooms:
+		var itemHolder = room.roomInstance.get_node(containerPath)
+		if !itemHolder: continue
+		var items:Array = itemHolder.get_children()
+		items.shuffle()
+		while items.size() > itemsPerRoom || (totalItemsKept >= maxItemCount && items.size() > 0):
+			var item = items.pop_back()
+			itemHolder.remove_child(item)
+			item.queue_free()
+		totalItemsKept += items.size()
+

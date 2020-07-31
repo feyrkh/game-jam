@@ -32,7 +32,7 @@ position = Vector2( 246.411, 194.434 )
 
 [node name="map" type="Node2D" parent="."]
 script = ExtResource( 1 )
-mapSize = 4
+mapSize = 5
 numExtraRooms = 6
 
 [node name="UI Layer" type="CanvasLayer" parent="." groups=[
