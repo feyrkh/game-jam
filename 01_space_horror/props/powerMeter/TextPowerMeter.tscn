@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://props/powerMeter/TextPowerMeter.gd" type="Script" id=1]
+
+[node name="PowerMeter" type="PanelContainer" groups=[
+"damagable",
+]]
+margin_left = -59.7341
+margin_top = -13.3484
+margin_right = 59.2659
+margin_bottom = 14.6516
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 112.0
+margin_bottom = 21.0
+text = "100% WARNING"
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -8,8 +8,6 @@
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=8]
 [ext_resource path="res://props/powerMeter/PowerMeter.tscn" type="PackedScene" id=9]
 
-
-
 [node name="Main" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]

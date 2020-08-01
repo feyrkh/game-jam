@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends PanelContainer
+
+func _ready():
+	$AnimationPlayer.play(\"FadeOut\")
+"
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeOut"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 15 ),
+"transitions": PoolRealArray( 1, 1, 6.27667 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="StartupMsg" type="PanelContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -85.5
+margin_top = -71.5
+margin_right = 84.5
+margin_bottom = -9.5
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 163.0
+margin_bottom = 55.0
+text = "Shields are down and
+THE BEAST approaches...
+Power up quickly!"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeOut = SubResource( 1 )
