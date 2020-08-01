@@ -324,4 +324,5 @@ margin_left = -43.5893
 margin_top = -63.3269
 margin_right = 75.4107
 margin_bottom = -35.3269
+acceptablePowerPercent = 65
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
