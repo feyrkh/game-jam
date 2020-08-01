@@ -128,6 +128,7 @@ __meta__ = {
 
 [node name="Starbeast" type="AnimatedSprite" parent="."]
 light_mask = 0
+position = Vector2( -0.529739, -61.184 )
 scale = Vector2( 0.0925, 0.0925 )
 frames = SubResource( 1 )
 

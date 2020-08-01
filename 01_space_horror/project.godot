@@ -152,6 +152,13 @@ ui_down={
 2d_physics/layer_19="Player Interaction Triggers"
 2d_physics/layer_20="Player Movement Triggers"
 
+[network]
+
+limits/debugger_stdout/max_chars_per_second=22048
+limits/debugger_stdout/max_messages_per_frame=1000
+limits/debugger_stdout/max_errors_per_second=1000
+limits/debugger_stdout/max_warnings_per_second=1000
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

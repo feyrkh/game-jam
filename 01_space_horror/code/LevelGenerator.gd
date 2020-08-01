@@ -70,7 +70,7 @@ func randChoice(arr):
 	if arr && arr.size() > 0:
 		return arr[randi() % arr.size()]
 
-func buildNewRoom(nextX, nextY, roomType, direction, curRoom):
+func buildNewRoom(nextX, nextY, roomType:String, direction, curRoom):
 	totalRooms += 1
 	var newRoom = RoomSlot.new(nextX, nextY, roomType)
 	rooms.append(newRoom)
@@ -103,19 +103,23 @@ func generateMap():
 			generateMap()
 		curRoom = randChoice(rooms)
 		var nextDirection:Direction = randChoice(directions)
-		if nextDirection == LEFT && NO_LEFT_EXIT.find(curRoom) >= 0:
+		if nextDirection == LEFT && NO_LEFT_EXIT.find(curRoom.roomName) >= 0:
 			# Trying to move left, but this room has no left exit
+			print("Retry can't move left")
 			retriesAllowed -= 1;
 			continue
-		if nextDirection == RIGHT && NO_RIGHT_EXIT.find(curRoom) >= 0:
+		if nextDirection == RIGHT && NO_RIGHT_EXIT.find(curRoom.roomName) >= 0:
 			# Trying to move right, but this room has no right exit
+			print("Retry can't move right")
 			retriesAllowed -= 1;
 			continue
-		if nextDirection == UP && NO_UP_EXIT.find(curRoom) >= 0:
+		if nextDirection == UP && NO_UP_EXIT.find(curRoom.roomName) >= 0:
+			print("Retry can't move up")
 			# Trying to move up, but this room has no up exit
 			retriesAllowed -= 1;
 			continue
-		if nextDirection == DOWN && NO_DOWN_EXIT.find(curRoom) >= 0:
+		if nextDirection == DOWN && NO_DOWN_EXIT.find(curRoom.roomName) >= 0:
+			print("Retry can't move down")
 			# Trying to move down, but this room has no down exit
 			retriesAllowed -= 1;
 			continue
@@ -147,6 +151,8 @@ func generateMap():
 			retriesAllowed = MAX_RETRIES_PER_ROOM
 
 func instantiateMap(container:Node2D):
+	var textMap = ""
+	
 	var roomInstance:Room
 	var roomData:RoomSlot
 	# Create rooms and position them on the map
@@ -162,10 +168,20 @@ func instantiateMap(container:Node2D):
 	yield(get_tree().create_timer(0.5), "timeout")
 	
 	for y in range(mapSize):
+		var topLayerStr = ""
+		var botLayerStr = ""
+		var midLayerStr = ""
 		for x in range(mapSize):
 			if map[y][x]:
 				roomData = map[y][x]
 				var curRoom:Room = roomData.roomInstance
+				
+				# Draw text map
+				midLayerStr += "-" if roomData.leftExitOpen else "."
+				topLayerStr += ".|." if roomData.upExitOpen else "..."
+				botLayerStr += ".|." if roomData.downExitOpen else "..."
+				midLayerStr += roomData.roomName[-1]+"-" if roomData.rightExitOpen else roomData.roomName[-1]+"."
+				
 				if x > 0:
 					var otherRoomData:RoomSlot = map[y][x-1]
 					if otherRoomData:
@@ -184,7 +200,13 @@ func instantiateMap(container:Node2D):
 							curRoom.UpExitBlocker.queue_free()
 							otherRoom.DownExitTeleporter.setExit(curRoom.UpEntrance)
 							otherRoom.DownExitBlocker.queue_free()
-	
+			else: 
+				topLayerStr += "..."
+				midLayerStr += "..."
+				botLayerStr += "..."
+		print(topLayerStr)
+		print(midLayerStr)
+		print(botLayerStr)
 	evenlyDistributeItems(container, @"shieldConsoles", maxShieldConsoleCount)
 	
 	emit_signal("mapGenerationComplete", startRoom.roomInstance)

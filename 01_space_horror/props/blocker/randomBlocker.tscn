@@ -8,6 +8,7 @@
 extents = Vector2( 8.0625, 8 )
 
 [node name="BlockerTile" type="Node2D" groups=[
+"damagable",
 "randomBlocker",
 ]]
 script = ExtResource( 3 )
