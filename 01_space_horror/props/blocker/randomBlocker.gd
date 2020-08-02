@@ -1,7 +1,9 @@
 extends Node2D
 
+export var forceVisible = false
+
 func _ready():
-	if randf() > 0.2: hideBlocker()
+	if randf() > 0.2 && !forceVisible: hideBlocker()
 	if randf() >= 0.5: $tilebarrier.queue_free()
 	else: $tilehole.queue_free()
 

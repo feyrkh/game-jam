@@ -102,7 +102,6 @@ LeftExitTeleporterPath = NodePath("LeftHall/LeftTeleporterExit")
 RightExitTeleporterPath = NodePath("RightHall/RightTeleporterExit")
 LeftEntrancePath = NodePath("LeftHall/LeftEntrance")
 RightEntrancePath = NodePath("RightHall/RightEntrance")
-approachMinutes = 1.0
 
 [node name="StarField" type="Node2D" parent="."]
 position = Vector2( 0, -62.3661 )
@@ -137,6 +136,7 @@ anims/approach = SubResource( 2 )
 anims/attack = SubResource( 3 )
 
 [node name="attack" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -10.0
 
