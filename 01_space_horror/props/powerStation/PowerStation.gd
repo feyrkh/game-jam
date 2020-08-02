@@ -35,7 +35,7 @@ func canInteract(equipmentMgr:EquipmentManager):
 func interact(equipmentMgr:EquipmentManager):
 	if shaking: return
 	.interact(equipmentMgr)
-	EventBus.emit_signal("hideControlNote")
+	EventBus.emit_signal("hideControlNote", self)
 	disableUserInput()
 	var popup:PowerStationControlPanel = ControlPanelScene.instance()
 	popup.setPowerLevel(powerLevel)
@@ -62,8 +62,8 @@ func damage():
 	position = originalPosition
 
 func _on_ActivationArea_area_entered(area):
-	if canInteract(area.get_parent().get_node_or_null("EquipmentMgr")): EventBus.emit_signal("showControlNote", "Shield Console: Press E to repair")
+	if canInteract(area.get_parent().get_node_or_null("EquipmentMgr")): EventBus.emit_signal("showControlNote", "Shield Console: Press E to repair", self)
 
 
 func _on_ActivationArea_area_exited(area):
-	EventBus.emit_signal("hideControlNote")
+	EventBus.emit_signal("hideControlNote", self)

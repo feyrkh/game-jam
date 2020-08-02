@@ -32,4 +32,5 @@ tile_data = PoolIntArray( 0, 6, 0, 131074, 9, 0, 131075, 9, 0, 131076, 9, 0, 131
 script = ExtResource( 3 )
 
 [node name="FixedCameraArea" parent="." instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 92.0536, -15.7313 )

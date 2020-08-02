@@ -35,14 +35,16 @@ func get_input():
 		var overlaps:Array = triggerZoneArea.get_overlapping_areas()
 		if !overlaps.empty():
 			var interactable = overlaps[0].get_parent()
-			if interactable != null and (!interactable.has_method("canInteract") or interactable.canInteract($EquipmentMgr)):
+			if interactable != null and (!interactable.has_method("canInteract") or interactable.canInteract($EquipmentMgr)) and interactable.has_method("interact"):
 				interactable.interact($EquipmentMgr)
 	
 	if leftRightInput:
 		if Input.is_action_pressed('ui_right'):
 			velocity.x += 1
+			$ToolHolder.changeDirection("R")
 		if Input.is_action_pressed('ui_left'):
 			velocity.x -= 1
+			$ToolHolder.changeDirection("L")
 
 	if upDownInput:
 		if Input.is_action_pressed('ui_down'):
@@ -58,8 +60,10 @@ func get_input():
 	var nextAnimation = "idle_right"
 	if velocity.y < 0:
 		nextAnimation = "walk_up"
+		$ToolHolder.changeDirection("U")
 	elif velocity.y > 0: 
 		nextAnimation = "walk_down"
+		$ToolHolder.changeDirection("D")
 	elif velocity.x != 0:
 		nextAnimation = "walk_right"
 		

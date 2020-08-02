@@ -8,7 +8,7 @@
 extents = Vector2( 8.0625, 8 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16.989, 1 )
+extents = Vector2( 16.989, 4.27213 )
 
 [node name="BlockerTile" type="Node2D" groups=[
 "damagable",
@@ -28,6 +28,7 @@ texture = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="ActivationArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 2147483648
 
@@ -37,3 +38,5 @@ shape = SubResource( 2 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ActivationArea"]
 rotation = 1.5708
 shape = SubResource( 2 )
+[connection signal="area_entered" from="ActivationArea" to="." method="_on_ActivationArea_area_entered"]
+[connection signal="area_exited" from="ActivationArea" to="." method="_on_ActivationArea_area_exited"]

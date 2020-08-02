@@ -1,4 +1,4 @@
 extends Node
 
-signal showControlNote # text
-signal hideControlNote
+signal showControlNote # text, owner
+signal hideControlNote # owner

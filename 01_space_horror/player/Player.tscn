@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/player-down.png" type="Texture" id=1]
 [ext_resource path="res://player/player-right.png" type="Texture" id=2]
@@ -11,27 +11,13 @@
 [ext_resource path="res://player/MapDetector.gd" type="Script" id=9]
 [ext_resource path="res://levels/starbeast/starfield.jpeg" type="Texture" id=10]
 [ext_resource path="res://player/EquipmentMgr.gd" type="Script" id=11]
+[ext_resource path="res://player/ToolHolder.gd" type="Script" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walk_right",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "idle_up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk_down",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -42,6 +28,21 @@ animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walk_right",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "idle_up",
 "speed": 5.0
 } ]
 
@@ -219,3 +220,20 @@ __meta__ = {
 
 [node name="EquipmentMgr" type="Node" parent="."]
 script = ExtResource( 11 )
+
+[node name="ToolHolder" type="Node2D" parent="."]
+script = ExtResource( 12 )
+
+[node name="R" type="Position2D" parent="ToolHolder"]
+position = Vector2( 6.69334, 0.0787468 )
+
+[node name="L" type="Position2D" parent="ToolHolder"]
+position = Vector2( -6.37835, 0.0787468 )
+
+[node name="U" type="Position2D" parent="ToolHolder"]
+position = Vector2( -0.15749, -7.79577 )
+rotation = -1.5708
+
+[node name="D" type="Position2D" parent="ToolHolder"]
+position = Vector2( -0.0787468, 7.71703 )
+rotation = 1.5708

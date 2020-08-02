@@ -142,7 +142,7 @@ position = Vector2( 176, -16 )
 [node name="locker" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, -88 )
 equipmentType = "repair"
-equipmentFriendlyName = "Repair Power Cell"
+equipmentFriendlyName = "Welding Torch"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2( 0, 280 )

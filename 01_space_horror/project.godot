@@ -48,6 +48,16 @@ _global_script_classes=[ {
 "class": "Teleporter",
 "language": "GDScript",
 "path": "res://props/teleporter/Teleporter.gd"
+}, {
+"base": "Node2D",
+"class": "Tool",
+"language": "GDScript",
+"path": "res://props/tools/Tool.gd"
+}, {
+"base": "Node2D",
+"class": "ToolHolder",
+"language": "GDScript",
+"path": "res://player/ToolHolder.gd"
 } ]
 _global_script_class_icons={
 "BaseMinigame": "",
@@ -57,7 +67,9 @@ _global_script_class_icons={
 "MixedModeCamera": "",
 "PowerStationControlPanel": "",
 "Room": "",
-"Teleporter": ""
+"Teleporter": "",
+"Tool": "",
+"ToolHolder": ""
 }
 
 [application]
