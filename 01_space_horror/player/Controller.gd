@@ -34,9 +34,9 @@ func get_input():
 	if Input.is_action_just_pressed("ui_accept"):
 		var overlaps:Array = triggerZoneArea.get_overlapping_areas()
 		if !overlaps.empty():
-			var interactable:Interactable = overlaps[0].get_parent()
-			if interactable != null and (!interactable.has_method("canInteract") or interactable.canInteract()):
-				interactable.interact()
+			var interactable = overlaps[0].get_parent()
+			if interactable != null and (!interactable.has_method("canInteract") or interactable.canInteract($EquipmentMgr)):
+				interactable.interact($EquipmentMgr)
 	
 	if leftRightInput:
 		if Input.is_action_pressed('ui_right'):

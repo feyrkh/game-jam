@@ -12,16 +12,6 @@ animations = [ {
 "name": "medPower",
 "speed": 1.0
 }, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "noPower",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "hiPower",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "lowPower",
@@ -31,6 +21,16 @@ animations = [ {
 "loop": true,
 "name": "damaged",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "noPower",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "hiPower",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -79,7 +79,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
 position = Vector2( 0.504501, 12 )
 shape = SubResource( 3 )
-[connection signal="area_entered" from="ActivationArea" to="." method="_on_ActivationArea_area_entered"]
 [connection signal="area_entered" from="ActivationArea" to="AnimatedSprite" method="_on_ActivationArea_area_entered"]
-[connection signal="area_exited" from="ActivationArea" to="." method="_on_ActivationArea_area_exited"]
+[connection signal="area_entered" from="ActivationArea" to="." method="_on_ActivationArea_area_entered"]
 [connection signal="area_exited" from="ActivationArea" to="AnimatedSprite" method="_on_ActivationArea_area_exited"]
+[connection signal="area_exited" from="ActivationArea" to="." method="_on_ActivationArea_area_exited"]

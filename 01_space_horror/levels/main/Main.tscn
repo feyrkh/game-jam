@@ -5,7 +5,7 @@
 [ext_resource path="res://props/strobe/StrobeLight.tscn" type="PackedScene" id=3]
 [ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/main/Main.gd" type="Script" id=5]
-[ext_resource path="res://levels/main/ActivationNote.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/ActivationNoteContainer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://player/StartupMsg.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node2D"]
@@ -41,24 +41,7 @@ numExtraRooms = 6
 "ui_layer",
 ]]
 
-[node name="MarginContainer" type="MarginContainer" parent="UI Layer"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -100.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CenterContainer" type="CenterContainer" parent="UI Layer/MarginContainer"]
-margin_right = 960.0
-margin_bottom = 100.0
-
-[node name="ActivationNote" parent="UI Layer/MarginContainer/CenterContainer" instance=ExtResource( 6 )]
-margin_left = 450.0
-margin_top = 36.0
-margin_right = 510.0
-margin_bottom = 64.0
+[node name="ActivationNoteContainer" parent="UI Layer" instance=ExtResource( 6 )]
 
 [node name="StartupMsg" parent="UI Layer" instance=ExtResource( 7 )]
 margin_left = 0.0

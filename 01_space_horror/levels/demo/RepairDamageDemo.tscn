@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://levels/main/rooms/room1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://props/blocker/randomBlocker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://camera/MixedModeCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://props/equipmentLocker/EquipmentLocker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://props/powerStation/PowerStation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/ActivationNoteContainer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=8]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 1
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131088, 8, 0 )
+
+[node name="Camera2D" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 488.539, 76.5638 )
+current = true
+zoom = Vector2( 0.25, 0.25 )
+targetPath = NodePath("../Player")
+following = true
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, -64 )
+z_index = 4
+speed = 100
+
+[node name="room" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4, 0 )
+
+[node name="Position2D" parent="room/LeftExitTeleporter" index="1"]
+position = Vector2( 21.8251, -160.051 )
+
+[node name="room2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4, -160 )
+
+[node name="Position2D" parent="room2/LeftExitTeleporter" index="1"]
+position = Vector2( 23.0817, 158.103 )
+
+[node name="UI Layer" type="CanvasLayer" parent="." groups=[
+"ui_layer",
+]]
+
+[node name="blockers" type="Node2D" parent="."]
+
+[node name="BlockerTile" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -40 )
+forceVisible = true
+
+[node name="BlockerTile2" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -24 )
+forceVisible = true
+
+[node name="BlockerTile3" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 96, -24 )
+forceVisible = true
+
+[node name="BlockerTile4" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -24 )
+forceVisible = true
+
+[node name="BlockerTile5" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -40 )
+forceVisible = true
+
+[node name="BlockerTile6" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -56 )
+forceVisible = true
+
+[node name="BlockerTile7" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 96, -56 )
+forceVisible = true
+
+[node name="BlockerTile8" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -56 )
+forceVisible = true
+
+[node name="BlockerTile9" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -160 )
+forceVisible = true
+
+[node name="BlockerTile10" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -144 )
+forceVisible = true
+
+[node name="BlockerTile11" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 96, -152 )
+forceVisible = true
+
+[node name="BlockerTile12" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -160 )
+forceVisible = true
+
+[node name="BlockerTile13" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -144 )
+forceVisible = true
+
+[node name="BlockerTile14" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 144, -160 )
+forceVisible = true
+
+[node name="BlockerTile15" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 144, -144 )
+forceVisible = true
+
+[node name="BlockerTile16" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 144, -184 )
+forceVisible = true
+
+[node name="BlockerTile17" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -176 )
+forceVisible = true
+
+[node name="BlockerTile18" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -176 )
+forceVisible = true
+
+[node name="BlockerTile19" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 80, -128 )
+forceVisible = true
+
+[node name="BlockerTile20" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 112, -128 )
+forceVisible = true
+
+[node name="BlockerTile21" parent="blockers" instance=ExtResource( 3 )]
+position = Vector2( 144, -128 )
+forceVisible = true
+
+[node name="PowerStation" parent="." instance=ExtResource( 6 )]
+position = Vector2( 96, -40 )
+
+[node name="PowerStation2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 176, -16 )
+
+[node name="locker" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, -88 )
+equipmentType = "repair"
+equipmentFriendlyName = "Repair Power Cell"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2( 0, 280 )
+transform = Transform2D( 1, 0, 0, 1, 0, 280 )
+
+[node name="ActivationNoteContainer" parent="CanvasLayer" instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -480.0
+margin_top = -640.0
+margin_right = 480.0
+
+[editable path="room"]
+
+[editable path="room2"]

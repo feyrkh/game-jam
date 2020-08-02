@@ -29,12 +29,12 @@ func setPowerLevel(var amt):
 			powerLevel = 0
 			$AnimatedSprite.play("noPower")
 
-func canInteract():
+func canInteract(equipmentMgr:EquipmentManager):
 	return !shaking and powerLevel < getMaxPowerLevel()
 
-func interact():
+func interact(equipmentMgr:EquipmentManager):
 	if shaking: return
-	.interact()
+	.interact(equipmentMgr)
 	EventBus.emit_signal("hideControlNote")
 	disableUserInput()
 	var popup:PowerStationControlPanel = ControlPanelScene.instance()
@@ -61,9 +61,8 @@ func damage():
 	shaking = false
 	position = originalPosition
 
-
 func _on_ActivationArea_area_entered(area):
-	if canInteract(): EventBus.emit_signal("showControlNote", "Press E")
+	if canInteract(area.get_parent().get_node_or_null("EquipmentMgr")): EventBus.emit_signal("showControlNote", "Shield Console: Press E to repair")
 
 
 func _on_ActivationArea_area_exited(area):

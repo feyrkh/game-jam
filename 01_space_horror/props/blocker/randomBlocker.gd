@@ -1,4 +1,4 @@
-extends Node2D
+extends Interactable
 
 export var forceVisible = false
 
