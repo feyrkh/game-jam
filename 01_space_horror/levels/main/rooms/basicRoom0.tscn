@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://props/blocker/randomBlocker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://props/teleporter/Teleporter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://props/equipmentLocker/EquipmentLocker.tscn" type="PackedScene" id=5]
 [ext_resource path="res://levels/tilenormal.png" type="Texture" id=6]
 [ext_resource path="res://levels/tilebarrier.png" type="Texture" id=7]
 [ext_resource path="res://code/Room.gd" type="Script" id=8]
@@ -427,5 +428,19 @@ position = Vector2( 152, 72 )
 
 [node name="PowerStation6" parent="shieldConsoles" instance=ExtResource( 9 )]
 position = Vector2( 216, 40 )
+
+[node name="repairLockers" type="Node2D" parent="."]
+
+[node name="RepairLocker" parent="repairLockers" instance=ExtResource( 5 )]
+position = Vector2( 144, 0 )
+
+[node name="RepairLocker2" parent="repairLockers" instance=ExtResource( 5 )]
+position = Vector2( 48, 0 )
+
+[node name="RepairLocker3" parent="repairLockers" instance=ExtResource( 5 )]
+position = Vector2( 192, 80 )
+
+[node name="RepairLocker4" parent="repairLockers" instance=ExtResource( 5 )]
+position = Vector2( 64, 96 )
 
 [editable path="FixedCameraArea"]

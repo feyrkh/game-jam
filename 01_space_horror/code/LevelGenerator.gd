@@ -59,6 +59,7 @@ var directions = [LEFT, RIGHT, UP, DOWN]
 export var mapSize = 6
 export var numExtraRooms = 5
 export var maxShieldConsoleCount = 3
+export var maxRepairLockerCount = 3
 var map:Array # of arrays of RoomSlots
 var rooms:Array
 
@@ -208,12 +209,14 @@ func instantiateMap(container:Node2D):
 		print(midLayerStr)
 		print(botLayerStr)
 	evenlyDistributeItems(container, @"shieldConsoles", maxShieldConsoleCount)
+	evenlyDistributeItems(container, @"repairLockers", maxRepairLockerCount)
 	
 	emit_signal("mapGenerationComplete", startRoom.roomInstance)
 
 func evenlyDistributeItems(container:Node, containerPath:NodePath, maxItemCount:int):
 	var totalItemsKept = 0
 	var roomsWithItems = 0
+	rooms.shuffle()
 	
 	for room in rooms:
 		var itemHolder = room.roomInstance.get_node_or_null(containerPath)

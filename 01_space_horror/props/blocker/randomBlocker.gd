@@ -8,23 +8,33 @@ func _ready():
 	if randf() > 0.2 && !forceVisible: hideBlocker()
 	if randf() >= 0.5: 
 		$tilebarrier.queue_free()
-		repairEnergyNeeded = 10
+		repairEnergyNeeded = 6
 	else: 
 		$tilehole.queue_free()
-		repairEnergyNeeded = 5
+		repairEnergyNeeded = 3
 
 func hideBlocker():
 	visible = false
 	$StaticBody2D/CollisionShape2D.disabled = true
+	$ActivationArea/CollisionShape2D.disabled = true
+	$ActivationArea/CollisionShape2D2.disabled = true
 	
 func showBlocker():
 	if !isTileNearPlayer():
 		visible = true
 		$StaticBody2D/CollisionShape2D.disabled = false
-		
+		$ActivationArea/CollisionShape2D.disabled = false
+		$ActivationArea/CollisionShape2D2.disabled = false
 
 func damage():
 	if randf() < 0.1: showBlocker()
+
+func doRepair() -> bool:
+	repairEnergyNeeded -= 1
+	if repairEnergyNeeded <= 0:
+		hideBlocker()
+		return true # should stop repair
+	return false
 
 func isTileNearPlayer():
 	var player = get_tree().get_nodes_in_group("player")[0]
@@ -50,7 +60,6 @@ func _on_ActivationArea_area_entered(area):
 			EventBus.emit_signal("showControlNote", "Press E to repair", self)
 		else:
 			EventBus.emit_signal("showControlNote", "Battery is dead, get a new repair tool!", self)
-
 
 func _on_ActivationArea_area_exited(area):
 	EventBus.emit_signal("hideControlNote", self)

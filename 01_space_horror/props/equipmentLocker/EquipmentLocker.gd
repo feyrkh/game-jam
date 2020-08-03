@@ -1,7 +1,7 @@
 extends Interactable
 
-export(String) var equipmentType
-export(String) var equipmentFriendlyName
+export var equipmentType = "repair"
+export var equipmentFriendlyName = "Welding Torch"
 
 func interact(equipmentMgr:EquipmentManager):
 	equipmentMgr.addEquipment(equipmentType, 100)

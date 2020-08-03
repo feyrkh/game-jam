@@ -24,7 +24,7 @@ func canUseEquipment(equipmentType:String, energyNeeded:int) -> bool:
 
 func useEquipment(equipmentType:String, energyAmt:int) -> bool:
 	if itemHeld == equipmentType:
-		itemEnergy -= energyAmt
-		#get_parent().disableInput()
+		var toolHolder:ToolHolder = get_parent().get_node("ToolHolder") as ToolHolder
+		toolHolder.heldItem.startActivation()
 		return true
 	return false

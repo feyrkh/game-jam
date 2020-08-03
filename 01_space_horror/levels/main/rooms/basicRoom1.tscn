@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://levels/StationTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://camera/FixedCameraArea.tscn" type="PackedScene" id=2]
+[ext_resource path="res://props/equipmentLocker/EquipmentLocker.tscn" type="PackedScene" id=3]
 [ext_resource path="res://props/teleporter/Teleporter.tscn" type="PackedScene" id=4]
 [ext_resource path="res://code/Room.gd" type="Script" id=5]
 [ext_resource path="res://levels/tilenormal.png" type="Texture" id=6]
@@ -290,6 +291,7 @@ position = Vector2( 8, 72 )
 texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="foreground/LeftExitBlocker"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/LeftExitBlocker/StaticBody2D"]
 position = Vector2( 8, 88 )
@@ -314,6 +316,7 @@ position = Vector2( 8, 72 )
 texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="foreground/RightExitBlocker"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/RightExitBlocker/StaticBody2D"]
 position = Vector2( 8, 88 )
@@ -339,6 +342,7 @@ position = Vector2( 8, 72 )
 texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="foreground/UpExitBlocker"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/UpExitBlocker/StaticBody2D"]
 position = Vector2( 8, 88 )
@@ -364,6 +368,7 @@ position = Vector2( 8, 72 )
 texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="foreground/DownExitBlocker"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="foreground/DownExitBlocker/StaticBody2D"]
 position = Vector2( 8.00002, 88 )
@@ -372,6 +377,7 @@ shape = SubResource( 1 )
 [node name="collision" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="collision"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collision/StaticBody2D"]
 position = Vector2( 47.9504, 7.30551 )
@@ -424,5 +430,19 @@ position = Vector2( 200, 40 )
 
 [node name="PowerStation5" parent="shieldConsoles" instance=ExtResource( 9 )]
 position = Vector2( 152, 120 )
+
+[node name="repairLockers" type="Node2D" parent="."]
+
+[node name="EquipmentLocker" parent="repairLockers" instance=ExtResource( 3 )]
+position = Vector2( 32, 0 )
+
+[node name="EquipmentLocker2" parent="repairLockers" instance=ExtResource( 3 )]
+position = Vector2( 144, 64 )
+
+[node name="EquipmentLocker3" parent="repairLockers" instance=ExtResource( 3 )]
+position = Vector2( 64, 96 )
+
+[node name="EquipmentLocker4" parent="repairLockers" instance=ExtResource( 3 )]
+position = Vector2( 144, 0 )
 
 [editable path="FixedCameraArea"]
